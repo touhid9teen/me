@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Light mode styles */
+.light {
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 255, 255, 255;
+}
+
+.light body {
+  background: rgb(248, 250, 252);
+  color: rgb(15, 23, 42);
+}
+
+.light .bg-slate-900 {
+  background-color: rgb(248, 250, 252) !important;
+}
+
+.light .text-slate-100 {
+  color: rgb(15, 23, 42) !important;
+}
+
+.light .text-slate-200 {
+  color: rgb(30, 41, 59) !important;
+}
+
+.light .text-slate-400 {
+  color: rgb(100, 116, 139) !important;
+}
+
+.light .text-slate-500 {
+  color: rgb(100, 116, 139) !important;
+}
+
+.light .bg-slate-900\/75 {
+  background-color: rgba(248, 250, 252, 0.75) !important;
+}
+
+.light .bg-slate-800\/50 {
+  background-color: rgba(241, 245, 249, 0.8) !important;
+}
+
+.light .bg-slate-800 {
+  background-color: rgb(241, 245, 249) !important;
+}
+
+.light .border-slate-700 {
+  border-color: rgb(203, 213, 225) !important;
+}
+
+.light .border-slate-600 {
+  border-color: rgb(203, 213, 225) !important;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Light mode hover effects */
+.light .lg\:group-hover\:bg-slate-800\/50 {
+  background-color: rgba(226, 232, 240, 0.8) !important;
+}
+
+.light .group:hover .lg\:group-hover\:bg-slate-800\/50 {
+  background-color: rgba(226, 232, 240, 0.8) !important;
+}
+
+.light .hover\:bg-slate-700:hover {
+  background-color: rgb(226, 232, 240) !important;
+}
+
+.light .hover\:bg-teal-400\/20:hover {
+  background-color: rgba(45, 212, 191, 0.15) !important;
+}
+
+.light .bg-slate-800\/70 {
+  background-color: rgba(241, 245, 249, 0.9) !important;
+}
+
+.light .hover\:bg-slate-800\/70:hover {
+  background-color: rgba(226, 232, 240, 0.9) !important;
+}
+
+.light .hover\:text-slate-200:hover {
+  color: rgb(30, 41, 59) !important;
+}
+
+.light .hover\:text-slate-300:hover {
+  color: rgb(51, 65, 85) !important;
+}
+
+.light .hover\:text-teal-300:hover {
+  color: rgb(20, 184, 166) !important;
+}
+
+.light .group-hover\:text-slate-200 {
+  color: rgb(30, 41, 59) !important;
+}
+
+.light .group-hover\:bg-slate-300 {
+  background-color: rgb(203, 213, 225) !important;
+}
+
+.light .hover\:border-slate-200\/30:hover {
+  border-color: rgba(30, 41, 59, 0.3) !important;
+}
+
+.light .group-hover\:border-teal-300:hover {
+  border-color: rgb(20, 184, 166) !important;
+}
+
+/* Fix navigation hover in light mode */
+.light .group:hover .nav-indicator {
+  background-color: rgb(30, 41, 59) !important;
+}
+
+.light .group:hover .nav-text {
+  color: rgb(30, 41, 59) !important;
+}
+
+/* Fix button hover states in light mode */
+.light .bg-teal-400\/10 {
+  background-color: rgba(45, 212, 191, 0.08) !important;
+}
+
+.light .border-teal-400\/20 {
+  border-color: rgba(45, 212, 191, 0.2) !important;
+}
+
+.light .text-teal-300 {
+  color: rgb(20, 184, 166) !important;
+}
+
+/* Fix card hover effects in light mode */
+.light .transition-colors:hover {
+  background-color: rgba(226, 232, 240, 0.8) !important;
+}
+
+/* Fix backdrop blur in light mode */
+.light .backdrop-blur {
+  backdrop-filter: blur(12px);
+  background-color: rgba(248, 250, 252, 0.8) !important;
+}
+
+/* Custom animations for floating particles */
+@keyframes float-0 {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+  }
+}
+
+@keyframes float-1 {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(90deg);
+  }
+}
+
+@keyframes float-2 {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(270deg);
+  }
+}
+
+/* Enhanced animations */
+@keyframes animate-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-from-bottom-5 {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation: animate-in 0.3s ease-out;
+}
+
+.slide-in-from-bottom-5 {
+  animation: slide-in-from-bottom-5 0.3s ease-out;
+}
