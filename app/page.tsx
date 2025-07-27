@@ -1,13 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-
-  Menu,
-  X,
-
-} from "lucide-react";
-
+import { Menu, X } from "lucide-react";
 
 import { WhatsAppChat } from "@/components/whatsapp-chat";
 import { Footer } from "@/components/footer";
@@ -23,7 +17,7 @@ import ThemeToggleCorner from "@/components/theme-toggle-corner";
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("about");
-  
+
   const [mounted, setMounted] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

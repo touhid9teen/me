@@ -1,3 +1,4 @@
+"use client";
 import { projects } from "@/lib/variables";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";

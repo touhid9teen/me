@@ -1,3 +1,4 @@
+"use client";
 import { education } from "@/lib/variables";
 
 export default function EducationsSections() {

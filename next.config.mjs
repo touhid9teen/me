@@ -1,3 +1,5 @@
+const isGithubPages = process.env.NODE_ENV === "production";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -9,6 +11,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-}
+  output: "export", // enables `next export`
+  basePath: isGithubPages ? "/me" : "",
+  assetPrefix: isGithubPages ? "/me/" : "",
+};
 
-export default nextConfig
+export default nextConfig;

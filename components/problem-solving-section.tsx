@@ -1,3 +1,4 @@
+"use client";
 import { problemSolvingData } from "@/lib/variables";
 import { ExternalLink } from "lucide-react";
 import { Badge } from "./ui/badge";
