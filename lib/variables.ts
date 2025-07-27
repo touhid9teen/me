@@ -45,7 +45,7 @@ export const projects = [
     title: "Amart - A Grocery E-commerce Site",
     description:
       "Designed and developed a full-stack grocery e-commerce web application for the Mirpur DOHS area, featuring product management, authentication, and customer checkout flow.",
-    image: "/amart.png",
+    image: "./amart.png",
     technologies: [
       "Next.js",
       "Tailwind CSS",
@@ -62,7 +62,7 @@ export const projects = [
     title: "UClick Portal - UCB’s Digital Banking App",
     description:
       "Worked on the frontend UI of UClick Portal to enhance responsiveness and user experience. Handled bug resolving and performance improvements in collaboration with cross-functional teams.",
-    image: "/ucb.png",
+    image: "./ucb.png",
     technologies: ["Next.js", "Tailwind CSS"],
     // github: "#",
     live: "https://digital.ucb.com.bd/",
