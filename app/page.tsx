@@ -14,9 +14,11 @@ import EducationsSections from "@/components/educations-sections";
 import ProblemSolvingSection from "@/components/problem-solving-section";
 import ContactSection from "@/components/contact-section";
 import ThemeToggleCorner from "@/components/theme-toggle-corner";
+import { useTheme } from "next-themes";
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("about");
+  const { theme } = useTheme();
 
   const [mounted, setMounted] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -178,7 +180,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-slate-900 dark:bg-slate-900 text-slate-100 transition-colors duration-300 pb-16 sm:pb-20 md:pb-24 lg:pb-36 xl:pb-40">
       {/* Mobile Header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md ">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 backdrop-blur-md ">
         <div className="flex items-center justify-between px-4 py-3">
           {/* Mobile Menu Button */}
           <button
@@ -187,9 +189,9 @@ export default function Portfolio() {
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className="h-5 w-5 text-slate-200" />
+              <X className="h-5 w-5" />
             ) : (
-              <Menu className="h-5 w-5 text-slate-200" />
+              <Menu className="h-5 w-50" />
             )}
           </button>
 
@@ -365,7 +367,13 @@ export default function Portfolio() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40 w-14 h-14 bg-slate-800/90 hover:bg-slate-700 border border-slate-600 text-slate-200 rounded-full shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 group"
+          className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40 w-14 h-14 
+    ${
+      theme === "dark"
+        ? "bg-slate-800/90 hover:bg-slate-700 border border-slate-600"
+        : "bg-white/90 hover:bg-gray-100 border border-gray-300"
+    } 
+    text-slate-800 dark:text-slate-200 rounded-full shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 group`}
           aria-label="Scroll to top"
         >
           <div className="flex items-center justify-center">
