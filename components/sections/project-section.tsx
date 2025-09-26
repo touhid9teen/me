@@ -2,7 +2,7 @@
 import { projects } from "@/lib/variables";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 
 export default function ProjectSection() {
   return (

@@ -1,7 +1,7 @@
 "use client";
 import { experiences } from "@/lib/variables";
 import { ExternalLink } from "lucide-react";
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 
 export default function ExperienceSection() {
   return (

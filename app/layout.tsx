@@ -2,7 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Crimson_Text } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/common/theme-provider";
 import "@/styles/fonts.css";
 
 const crimsonText = Crimson_Text({
