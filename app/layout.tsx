@@ -14,12 +14,9 @@ const crimsonText = Crimson_Text({
 
 export const metadata: Metadata = {
   title: "Touhidul Islam",
-  description:
-    "Portfolio of Touhidul Islam, a passionate full stack developer specializing in modern web technologies.",
+  description: "Portfolio...",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: "/favicon.png",
   },
 };
 
