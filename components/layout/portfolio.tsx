@@ -1,13 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Footer } from "@/components/layout/footer";
-import { WhatsAppChat } from "@/components/common/whatsapp-chat";
 
 import { useActiveSection } from "@/hooks/use-active-section";
-import MobileHeader from "../common/mobile-header";
+
 import DesktopSidebar from "./desktop-sidebar";
 import MainContent from "./main-content";
 import ScrollToTopButton from "../common/scroll-to-top-button";
+import { WhatsAppChat } from "../common/whatsapp-chat";
+import MobileHeader from "../common/mobile-header";
 
 export default function Portfolio() {
   const activeSection = useActiveSection();
@@ -35,7 +36,7 @@ export default function Portfolio() {
   if (!mounted) return null;
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 transition-colors duration-300 pb-16 sm:pb-20 md:pb-24 lg:pb-36 xl:pb-40">
+    <div className="min-h-screen bg-slate-900 text-slate-100 pb-16 sm:pb-20 md:pb-24 lg:pb-36 xl:pb-40">
       <MobileHeader
         isOpen={isMobileMenuOpen}
         toggleMenu={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
