@@ -17,9 +17,13 @@ export default function ExperienceSection() {
             <li key={index} className="mb-12">
               <div className="group relative grid pb-1 transition-all sm:grid-cols-10 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
                 <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+
+                {/* Period */}
                 <header className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-3">
                   {exp.period}
                 </header>
+
+                {/* Main Content */}
                 <div className="z-10 sm:col-span-7">
                   <h3 className="font-medium leading-snug text-slate-200">
                     <div>
@@ -32,10 +36,16 @@ export default function ExperienceSection() {
                       </span>
                     </div>
                   </h3>
-                  <p className="mt-2 text-sm leading-normal text-slate-400">
-                    {exp.description}
-                  </p>
-                  <ul className="mt-2 flex flex-wrap">
+
+                  {/* Description points */}
+                  <ul className="mt-2 list-disc list-inside text-sm leading-relaxed text-slate-400 space-y-1">
+                    {exp.description.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+
+                  {/* Tech badges */}
+                  <ul className="mt-3 flex flex-wrap">
                     {exp.technologies.map((tech, techIndex) => (
                       <li key={techIndex} className="mr-1.5 mt-2">
                         <Badge
