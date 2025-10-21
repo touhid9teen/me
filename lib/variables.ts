@@ -9,21 +9,17 @@ export const sections = [
 
 export const experiences = [
   {
-    period: "Aug 2024 — PRESENT",
+    period: "Aug 2024 — Present",
     title: "Software Engineer",
-    company: "উপায় (UCB Fintech Company Limited)",
+    title2: "Software Engineer Intern",
+    company: "উপায় (UCB Fintech Company Limited)",
     location: "Gulshan, Dhaka",
     description: [
-      "Collaborated with UCB’s Digital Innovation Team to develop and maintain UClick, UClick Backoffice, and the UCB Super App — high-volume, security-focused web applications.",
-      "Designed and implemented new feature components based on business requirements while resolving numerous bugs to enhance product stability.",
-      "Optimized UI performance, accessibility, and API efficiency, reducing code complexity by 30% and improving readability and maintainability.",
-      "Improved overall system performance by 20% by preventing redundant component re-executions and streamlining rendering logic.",
-      "Worked on scalable and secure back-end microservices with Django REST Framework, implementing authentication, caching, task scheduling, and optimized API communication to enhance performance and reliability.",
-      "Collaborated with designers, frontend/backend engineers, and QA teams to ensure smooth integration and a consistent user experience across platforms.",
+      " Building robust frontend solutions with Next.js while contributing to backend services with Django REST, ensuring high-performance, secure, and responsive fintech applications.",
     ],
     technologies: [
-      "React",
       "Next.js",
+      "React",
       "TypeScript",
       "Tailwind CSS",
       "Django REST Framework",
@@ -32,21 +28,19 @@ export const experiences = [
   },
   {
     period: "Sep 2023 — Feb 2024",
-    title: "Frontend Trainee (Learnathon 2.0)",
+    title: "Software Engineer Intern",
+    title2: "Geeky Solution (Learnathon 2.0)",
     company: "Vivasoft Limited",
     location: "Remote",
     description: [
-      "Learned industry-standard frontend coding practices in JavaScript, React, and Next.js during the learning phase, with guidance from assigned Vivasoft frontend engineers.",
-      "Worked on assigned projects within set timelines, applying best practices in clean code, version control, and agile workflows.",
-      "Contributed individually to the development of the Contact Management Application, implementing new features, fixing bugs, and ensuring high-quality deliverables.",
-      "Collaborated with team members to integrate components, review code, and follow agile development processes.",
+      "Built React/Next.js projects while adopting industry best practices in clean code, version control, and agile workflows.",
     ],
     technologies: [
       "JavaScript",
-      "TypeScript",
       "React",
       "Next.js",
       "Tailwind CSS",
+      "Git/GitHub",
     ],
   },
 ];

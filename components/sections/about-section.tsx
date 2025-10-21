@@ -9,13 +9,12 @@ export default function AboutSection() {
         </h2>
       </div>
       <div>
-        <p className="mb-4 text-slate-400">
-          I'm a Frontend Developer with strong knowledge of backend technologies
-          and a passion for building clean, scalable, and user-focused web
-          applications.
+        <p className="mb-4 text-lg  text-slate-400">
+          I'm a Software Engineer with a passion for building clean, scalable,
+          and user-focused web applications.
         </p>
-        <p className="mb-4 text-slate-400">
-          Currently, I’m working as a Software Engineer at{" "}
+        <p className="mb-4 text-lg  text-slate-400">
+          Currently, I’m working at{" "}
           <a
             href="#"
             className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
@@ -25,7 +24,7 @@ export default function AboutSection() {
           , where I contribute to developing modern, high-performance interfaces
           using cutting-edge tools and frameworks.
         </p>
-        <p className="text-slate-400">
+        <p className="text-lg  text-slate-400">
           Outside of work, I enjoy exploring new technologies, solving problems
           through code, contributing to open-source projects, and continuously
           sharpening my frontend and backend development skills.

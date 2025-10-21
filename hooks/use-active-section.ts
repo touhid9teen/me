@@ -1,3 +1,4 @@
+// hooks/use-active-section.ts
 "use client";
 import { useEffect, useState } from "react";
 import { sections } from "@/lib/variables";
@@ -6,61 +7,52 @@ export function useActiveSection() {
   const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "-10% 0px -80% 0px",
-      threshold: [0, 0.1, 0.5, 1],
-    };
+    let isScrolling = false;
 
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      let mostVisibleSection: string | null = null;
-      let maxIntersectionRatio = 0;
+    const handleScroll = () => {
+      if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY + window.innerHeight / 3;
 
-      entries.forEach((entry) => {
-        if (
-          entry.isIntersecting &&
-          entry.intersectionRatio > maxIntersectionRatio
-        ) {
-          maxIntersectionRatio = entry.intersectionRatio;
-          mostVisibleSection = entry.target.id;
-        }
-      });
+          // Loop through sections from bottom to top
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const section = document.getElementById(sections[i].id);
+            if (section) {
+              const sectionTop = section.offsetTop;
+              const sectionBottom = sectionTop + section.offsetHeight;
 
-      if (mostVisibleSection) {
-        setActiveSection(mostVisibleSection);
-      } else {
-        const sectionIds = sections.map((s) => s.id);
-        const scrollPosition = window.scrollY + window.innerHeight / 3;
-
-        for (let i = sectionIds.length - 1; i >= 0; i--) {
-          const element = document.getElementById(sectionIds[i]);
-          if (element && element.offsetTop <= scrollPosition) {
-            setActiveSection(sectionIds[i]);
-            break;
+              // Check if scroll position is within this section
+              if (
+                scrollPosition >= sectionTop &&
+                scrollPosition < sectionBottom
+              ) {
+                setActiveSection(sections[i].id);
+                break;
+              }
+              // If we're past all sections, set the last one
+              if (i === sections.length - 1 && scrollPosition >= sectionTop) {
+                setActiveSection(sections[i].id);
+                break;
+              }
+            }
           }
-        }
+
+          isScrolling = false;
+        });
+        isScrolling = true;
       }
     };
 
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions
-    );
-    const sectionElements: Element[] = [];
+    // Initial check
+    handleScroll();
 
-    sections.forEach((s) => {
-      const el = document.getElementById(s.id);
-      if (el) {
-        observer.observe(el);
-        sectionElements.push(el);
-      }
-    });
+    // Add scroll listener
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      sectionElements.forEach((el) => observer.unobserve(el));
-      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  return activeSection;
+  return { activeSection, setActiveSection };
 }

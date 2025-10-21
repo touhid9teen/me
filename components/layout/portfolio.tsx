@@ -1,9 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Footer } from "@/components/layout/footer";
-
 import { useActiveSection } from "@/hooks/use-active-section";
-
 import DesktopSidebar from "./desktop-sidebar";
 import MainContent from "./main-content";
 import ScrollToTopButton from "../common/scroll-to-top-button";
@@ -11,12 +9,13 @@ import { WhatsAppChat } from "../common/whatsapp-chat";
 import MobileHeader from "../common/mobile-header";
 
 export default function Portfolio() {
-  const activeSection = useActiveSection();
+  const { activeSection, setActiveSection } = useActiveSection();
   const [mounted, setMounted] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => setMounted(true), []);
+
   useEffect(() => {
     const onScroll = () => setShowScrollTop(window.scrollY > 400);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -26,6 +25,7 @@ export default function Portfolio() {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
+      setActiveSection(id);
       const offset = 100;
       window.scrollTo({ top: el.offsetTop - offset, behavior: "smooth" });
     }
@@ -33,6 +33,7 @@ export default function Portfolio() {
   };
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   if (!mounted) return null;
 
   return (
