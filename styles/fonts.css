@@ -5,3 +5,8 @@
   font-style: normal;
   font-display: swap;
 }
+
+.font-recoleta {
+  font-family: "Recoleta", serif;
+  font-weight: 400;
+}

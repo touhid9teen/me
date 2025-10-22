@@ -4,15 +4,17 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-color: #f0e7db;
+  --hover-color: #e2d5c5;
+  --text-primary: #1a202c;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-color: #1a1a1a;
+    --hover-color: #2d2d2d;
+    --text-primary: #ffffff;
   }
 }
 
@@ -21,8 +23,16 @@ html {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  color: var(--text-primary);
+  background-color: var(--background-color);
+}
+
+.hover-effect {
+  transition: all 0.3s ease;
+}
+
+.hover-effect:hover {
+  background-color: var(--hover-color);
 }
 
 @layer utilities {
