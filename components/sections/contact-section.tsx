@@ -13,22 +13,22 @@ export default function ContactSection() {
 
       {/* Main Content */}
       <div className="text-center lg:text-left">
-        <p className="mb-10 text-3xl sm:text-4xl font-medium leading-relaxed text-slate-500">
+        <p className="mb-10 text-2xl sm:text-3xl font-medium leading-relaxed text-slate-500">
           Want to start a new project? <br className="hidden sm:inline" />
           Or just say hello.
         </p>
 
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-8">
           {/* Location */}
-          <div className="text-center sm:text-left">
+          {/* <div className="text-center sm:text-left">
             <h4 className="font-semibold text-lg sm:text-xl text-slate-200 mb-2">
               Location
             </h4>
             <p className="text-base text-slate-400">Dhaka, Bangladesh.</p>
-          </div>
+          </div> */}
 
           {/* Resume Button */}
-          <a
+          {/* <a
             href="./Md_Touhidul_Islam_Oct_15_2025_Leatest_Resume.pdf"
             download
             target="_blank"
@@ -55,7 +55,7 @@ export default function ContactSection() {
               </svg>
               Download Resume
             </Button>
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

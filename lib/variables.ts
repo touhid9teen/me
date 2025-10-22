@@ -15,7 +15,7 @@ export const experiences = [
     company: "উপায় (UCB Fintech Company Limited)",
     location: "Gulshan, Dhaka",
     description: [
-      " Building robust frontend solutions with Next.js while contributing to backend services with Django REST, ensuring high-performance, secure, and responsive fintech applications.",
+      "Worked on UCB Super App projects including financial solutions like UClick and UNET, fixing issues and implementing new features for high-performance fintech applications.",
     ],
     technologies: [
       "Next.js",
@@ -33,7 +33,7 @@ export const experiences = [
     company: "Vivasoft Limited",
     location: "Remote",
     description: [
-      "Built React/Next.js projects while adopting industry best practices in clean code, version control, and agile workflows.",
+      "Learned industry-standard coding practices while developing components, layouts, and functionalities for Vivasoft's contact management application.",
     ],
     technologies: [
       "JavaScript",
@@ -49,7 +49,7 @@ export const projects = [
   {
     title: "Amart - A Grocery E-commerce Site",
     description:
-      "Designed and developed a full-stack grocery e-commerce web application for the Mirpur DOHS area, featuring product management, authentication, and customer checkout flow.",
+      "Full-stack grocery e-commerce app with product management, authentication, and checkout flow.",
     image: "./amart.png",
     technologies: [
       "Next.js",
@@ -59,19 +59,15 @@ export const projects = [
       "JWT",
       "Git",
     ],
-    // github: "https://github.com/touhid9teen/amart-backend",
     live: "https://amart.com.bd",
-    // stars: 0,
   },
   {
     title: "UClick Portal - UCB’s Digital Banking App",
     description:
-      "Worked on the frontend UI of UClick Portal to enhance responsiveness and user experience. Handled bug resolving and performance improvements in collaboration with cross-functional teams.",
+      "Enhanced frontend UI, resolved bugs, and improved performance for UCB’s digital banking portal.",
     image: "./ucb.png",
     technologies: ["Next.js", "Tailwind CSS"],
-    // github: "#",
     live: "https://digital.ucb.com.bd/",
-    // stars: 0,
   },
 ];
 

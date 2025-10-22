@@ -8,6 +8,7 @@ import {
   FolderGit2,
   Code2,
   Mail,
+  MapPin,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -51,9 +52,9 @@ export default function DesktopSidebar({
         <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
           Software Engineer
         </h2>
-        <p className="mt-4 max-w-xs leading-normal text-slate-400">
-          Building pixel-perfect, user-focused web experiences with a focus on
-          performance and clean code.
+        {/* Location with icon */}
+        <p className="mt-4 flex items-center gap-1 text-slate-400">
+          <MapPin className="h-4 w-4" /> Dhaka, Bangladesh
         </p>
         <ThemeToggleCorner />
 
