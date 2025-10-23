@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Crimson_Text } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/common/theme-provider";
+import HexagonLoader from "@/components/common/hexagon-loader";
 // @ts-ignore
 import "@/styles/fonts.css";
 
@@ -34,8 +35,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <HexagonLoader />
           {children}
-        </ThemeProvider>
+        </ThemeProvider>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
       </body>
     </html>
   );
