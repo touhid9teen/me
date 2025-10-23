@@ -37,7 +37,7 @@ export default function RootLayout({
         >
           <HexagonLoader />
           {children}
-        </ThemeProvider>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+        </ThemeProvider>
       </body>
     </html>
   );
