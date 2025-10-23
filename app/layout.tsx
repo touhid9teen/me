@@ -14,10 +14,10 @@ const crimsonText = Crimson_Text({
 });
 
 export const metadata: Metadata = {
-  title: "Touhidul Islam",
+  title: "Touhid",
   description: "Portfolio...",
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.svg",
   },
 };
 
