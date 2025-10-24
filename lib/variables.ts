@@ -111,3 +111,83 @@ export const problemSolvingData = [
       "Solved 100+ problems with participation in long and short contests, emphasizing optimized algorithmic techniques.",
   },
 ];
+
+export const welcomeMessages: Message[] = [
+  {
+    id: "1",
+    text: "Hi there! 👋 Welcome to my portfolio!",
+    sender: "bot",
+    timestamp: new Date(),
+  },
+  {
+    id: "2",
+    text: "I'm Touhid's AI assistant. I can help you with:\n• Project inquiries 💼\n• Technical questions 🤔\n• Collaboration opportunities 🤝\n• General information ℹ️",
+    sender: "bot",
+    timestamp: new Date(),
+  },
+];
+
+export const quickActions = [
+  {
+    text: "💼 Discuss a Project",
+    message:
+      "Hi Touhid! I have a project idea and would like to discuss it with you.",
+  },
+  {
+    text: "🤝 Collaboration",
+    message:
+      "Hello! I'm interested in collaborating with you on some projects.",
+  },
+  {
+    text: "❓ Ask Questions",
+    message:
+      "Hi! I have some technical questions about your work and experience.",
+  },
+  {
+    text: "👋 Just Say Hi",
+    message: "Hello Touhid! I visited your portfolio and wanted to connect.",
+  },
+];
+
+export const generateBotResponse = (userText: string): string => {
+  const lowerText = userText.toLowerCase();
+
+  if (
+    lowerText.includes("project") ||
+    lowerText.includes("work") ||
+    lowerText.includes("hire")
+  ) {
+    return "Great! I'd love to discuss your project. Let me connect you directly with Touhid via WhatsApp for detailed discussion. Click the WhatsApp button below! 🚀";
+  }
+
+  if (
+    lowerText.includes("price") ||
+    lowerText.includes("cost") ||
+    lowerText.includes("budget")
+  ) {
+    return "Project costs vary based on complexity and requirements. Let's discuss your specific needs via WhatsApp to provide accurate pricing! 💰";
+  }
+
+  if (lowerText.includes("experience") || lowerText.includes("skill")) {
+    return "Touhid has 4+ years of experience in full-stack development with React, Node.js, and modern web technologies. Check out the Experience section above! 💪";
+  }
+
+  if (lowerText.includes("contact") || lowerText.includes("reach")) {
+    return "You can reach Touhid directly via:\n📧 touhid.ru66@gmail.com\n📱 WhatsApp (click button below)\n💼 LinkedIn (check social links)";
+  }
+
+  if (
+    lowerText.includes("hello") ||
+    lowerText.includes("hi") ||
+    lowerText.includes("hey")
+  ) {
+    return "Hello! Nice to meet you! 😊 How can I help you today? Feel free to ask about Touhid's work, projects, or anything else!";
+  }
+
+  if (lowerText.includes("thanks") || lowerText.includes("thank you")) {
+    return "You're welcome! 😊 Is there anything else I can help you with? Don't hesitate to reach out via WhatsApp for direct communication!";
+  }
+
+  // Default response
+  return "That's interesting! For detailed discussions about this topic, I'd recommend connecting directly with Touhid via WhatsApp. He'll be able to provide you with comprehensive information! 💬";
+};

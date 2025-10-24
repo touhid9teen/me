@@ -9,13 +9,14 @@ import ScrollToTopButton from "../common/scroll-to-top-button";
 import { WhatsAppChat } from "../common/whatsapp-chat";
 import ThemeToggleCorner from "@/components/common/theme-toggle-corner";
 import MobileMenuButton from "../sections/mobileMenuButton";
-import MobileSidebarMenu from "../sections/mobileSidebarMenu";
+import MobileSidebarMenu from "./mobileSidebarMenu";
 
 export default function Portfolio() {
   const { activeSection, setActiveSection } = useActiveSection();
   const [mounted, setMounted] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hideHeader, setHideHeader] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
@@ -40,7 +41,14 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen  bg-slate-900 text-slate-100 pb-16 sm:pb-20 md:pb-24 lg:pb-36 xl:pb-40">
-      <header className="fixed top-0 left-0 w-full z-[999] pointer-events-none">
+      {/* <header className="fixed top-0 left-0 w-full z-[999] pointer-events-none"> */}
+      <header
+        className={`fixed top-0 left-0 w-full z-[999] pointer-events-none transition-all duration-300 ${
+          hideHeader
+            ? "opacity-0 translate-y-[-100%]"
+            : "opacity-100 translate-y-0"
+        }`}
+      >
         <div className="flex justify-between items-center p-5">
           {/* Mobile Menu Button */}
           <div className="pointer-events-auto">
@@ -74,7 +82,8 @@ export default function Portfolio() {
         </div>
       </div>
       <Footer />
-      <WhatsAppChat />
+
+      <WhatsAppChat onToggle={(open) => setHideHeader(open)} />
       <ScrollToTopButton visible={showScrollTop} scrollToTop={scrollToTop} />
     </div>
   );

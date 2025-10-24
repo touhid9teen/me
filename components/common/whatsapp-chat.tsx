@@ -3,6 +3,11 @@
 import { useState, useEffect } from "react";
 import { MessageCircle, X, Send, Phone, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  generateBotResponse,
+  quickActions,
+  welcomeMessages,
+} from "@/lib/variables";
 
 interface Message {
   id: string;
@@ -11,29 +16,25 @@ interface Message {
   timestamp: Date;
 }
 
-export function WhatsAppChat() {
+export function WhatsAppChat({
+  onToggle,
+}: {
+  onToggle: (open: boolean) => void;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
 
+  const toggleChat = () => {
+    const newState = !isOpen;
+    setIsOpen(newState);
+    onToggle(newState); // <-- notify parent
+  };
+
   // Initialize chat with welcome messages
   useEffect(() => {
-    const welcomeMessages: Message[] = [
-      {
-        id: "1",
-        text: "Hi there! 👋 Welcome to my portfolio!",
-        sender: "bot",
-        timestamp: new Date(),
-      },
-      {
-        id: "2",
-        text: "I'm Touhid's AI assistant. I can help you with:\n• Project inquiries 💼\n• Technical questions 🤔\n• Collaboration opportunities 🤝\n• General information ℹ️",
-        sender: "bot",
-        timestamp: new Date(),
-      },
-    ];
     setMessages(welcomeMessages);
   }, []);
 
@@ -86,49 +87,6 @@ export function WhatsAppChat() {
     }, 1500 + Math.random() * 1000);
   };
 
-  const generateBotResponse = (userText: string): string => {
-    const lowerText = userText.toLowerCase();
-
-    if (
-      lowerText.includes("project") ||
-      lowerText.includes("work") ||
-      lowerText.includes("hire")
-    ) {
-      return "Great! I'd love to discuss your project. Let me connect you directly with Touhid via WhatsApp for detailed discussion. Click the WhatsApp button below! 🚀";
-    }
-
-    if (
-      lowerText.includes("price") ||
-      lowerText.includes("cost") ||
-      lowerText.includes("budget")
-    ) {
-      return "Project costs vary based on complexity and requirements. Let's discuss your specific needs via WhatsApp to provide accurate pricing! 💰";
-    }
-
-    if (lowerText.includes("experience") || lowerText.includes("skill")) {
-      return "Touhid has 4+ years of experience in full-stack development with React, Node.js, and modern web technologies. Check out the Experience section above! 💪";
-    }
-
-    if (lowerText.includes("contact") || lowerText.includes("reach")) {
-      return "You can reach Touhid directly via:\n📧 touhid.ru66@gmail.com\n📱 WhatsApp (click button below)\n💼 LinkedIn (check social links)";
-    }
-
-    if (
-      lowerText.includes("hello") ||
-      lowerText.includes("hi") ||
-      lowerText.includes("hey")
-    ) {
-      return "Hello! Nice to meet you! 😊 How can I help you today? Feel free to ask about Touhid's work, projects, or anything else!";
-    }
-
-    if (lowerText.includes("thanks") || lowerText.includes("thank you")) {
-      return "You're welcome! 😊 Is there anything else I can help you with? Don't hesitate to reach out via WhatsApp for direct communication!";
-    }
-
-    // Default response
-    return "That's interesting! For detailed discussions about this topic, I'd recommend connecting directly with Touhid via WhatsApp. He'll be able to provide you with comprehensive information! 💬";
-  };
-
   const openWhatsApp = (message?: string) => {
     const phoneNumber = "01785250717";
     const defaultMessage =
@@ -140,34 +98,12 @@ export function WhatsAppChat() {
     window.open(whatsappUrl, "_blank");
   };
 
-  const quickActions = [
-    {
-      text: "💼 Discuss a Project",
-      message:
-        "Hi Touhid! I have a project idea and would like to discuss it with you.",
-    },
-    {
-      text: "🤝 Collaboration",
-      message:
-        "Hello! I'm interested in collaborating with you on some projects.",
-    },
-    {
-      text: "❓ Ask Questions",
-      message:
-        "Hi! I have some technical questions about your work and experience.",
-    },
-    {
-      text: "👋 Just Say Hi",
-      message: "Hello Touhid! I visited your portfolio and wanted to connect.",
-    },
-  ];
-
   return (
     <>
       {/* Background Overlay - Only show when chat is open */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-all duration-300"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-500 transition-all duration-300"
           onClick={() => setIsOpen(false)}
           aria-hidden="true"
         />
@@ -354,7 +290,7 @@ export function WhatsAppChat() {
 
         {/* Main Chat Button - Responsive sizing */}
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={toggleChat}
           className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 ${
             isOpen
               ? "bg-transparent"

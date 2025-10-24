@@ -5,7 +5,7 @@ import ProjectSection from "@/components/sections/project-section";
 import EducationsSections from "@/components/sections/educations-sections";
 import ProblemSolvingSection from "@/components/sections/problem-solving-section";
 import ContactSection from "@/components/sections/contact-section";
-import { SectionWrapper } from "../sections/section-wrapper";
+import { SectionWrapper } from "./section-wrapper";
 
 export default function MainContent() {
   return (

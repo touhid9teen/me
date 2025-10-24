@@ -1,6 +1,6 @@
 "use client";
 
-import TechStackSection from "./tech-stack";
+import TechStackSection from "../common/tech-stack";
 
 export default function AboutSection() {
   return (
@@ -16,16 +16,17 @@ export default function AboutSection() {
               I turn coffee ☕ and code 💻 into slick, bug-free web magic.
             </p>
             <p className="text-base sm:text-lg leading-relaxed">
-              Currently leveling up at <span className="underline">Upay</span>{" "}
-              UCB Fintech Company Limited, making interfaces fast, shiny, and
-              just a bit magical. Outside work exploring new ideas and building
-              funky creations.
+              Currently leveling up at{" "}
+              <span className="underline text-teal-300">Upay</span> UCB Fintech
+              Company Limited, making interfaces fast, shiny, and just a bit
+              magical. Outside work exploring new ideas and building funky
+              creations.
             </p>
           </div>
         </div>
 
         {/* Tech Stack */}
-       
+
         <TechStackSection />
       </div>
     </div>
