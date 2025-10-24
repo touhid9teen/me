@@ -110,7 +110,7 @@ export function WhatsAppChat({
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 backdrop-blur-sm z-500 transition-all duration-300"
-          onClick={() => setIsOpen(false)}
+          onClick={toggleChat}
           aria-hidden="true"
         />
       )}
@@ -138,7 +138,7 @@ export function WhatsAppChat({
                   </div>
                 </div>
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={toggleChat}
                   className="text-white hover:bg-white/20 p-2 rounded-full transition-colors"
                   aria-label="Close chat"
                 >
