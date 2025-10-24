@@ -44,7 +44,7 @@ export default function DesktopSidebar({
   };
 
   return (
-    <header className="hidden lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+    <header className="hidden lg:sticky lg:top-0 lg:flex lg:max-h-screen  lg:flex-col lg:justify-between lg:py-24">
       <div>
         <h4 className="py-2">
           <span className="underline p-1 text-teal-300">Assalamu-alikum</span> ,

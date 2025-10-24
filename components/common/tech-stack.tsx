@@ -84,7 +84,7 @@ export default function TechStackSection() {
         isDark ? "bg-slate-900" : "bg-slate-50"
       }`}
     >
-      <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only px-4 py-8">
+      <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200  px-4 py-2 pb-6">
         Tech Stack
       </h2>
 

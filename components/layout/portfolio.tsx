@@ -40,7 +40,7 @@ export default function Portfolio() {
   if (!mounted) return null;
 
   return (
-    <div className="min-h-screen  bg-slate-900 text-slate-100 pb-16 sm:pb-20 md:pb-24 lg:pb-36 xl:pb-40">
+    <div className="min-h-screen  bg-slate-900 text-slate-100 pb-16 sm:pb-20 md:pb-24 lg:pb-36 xl:pb-40 ">
       {/* <header className="fixed top-0 left-0 w-full z-[999] pointer-events-none"> */}
       <header
         className={`fixed top-0 left-0 w-full z-[999] pointer-events-none transition-all duration-300 ${
@@ -72,13 +72,19 @@ export default function Portfolio() {
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
       />
-      <div className="mx-auto max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
-        <div className="lg:flex lg:justify-between lg:gap-4">
+      <div className="mx-auto max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 ">
+        <div
+          className="lg:grid lg:grid-cols-3
+        "
+        >
           <DesktopSidebar
             activeSection={activeSection}
             scrollToSection={scrollToSection}
           />
-          <MainContent />
+
+          <div className="lg:col-span-2 items-center flex justify-center ">
+            <MainContent />
+          </div>
         </div>
       </div>
       <Footer />

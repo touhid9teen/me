@@ -9,7 +9,7 @@ import { SectionWrapper } from "./section-wrapper";
 
 export default function MainContent() {
   return (
-    <main className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 pt-6 sm:pt-8 md:pt-10 lg:w-1/2 lg:py-2 lg:px-0">
+    <main className="w-full">
       <SectionWrapper id="about">
         <AboutSection />
       </SectionWrapper>
