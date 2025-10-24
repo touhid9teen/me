@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Recoleta";
-  src: url("../fonts/recoleta/Recoleta-RegularDEMO.woff") format("woff");
+  src: url("/me/fonts/recoleta/Recoleta-RegularDEMO.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
