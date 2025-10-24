@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Touhid",
   description: "Portfolio...",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.svg?v=2",
   },
 };
 
