@@ -1,5 +1,6 @@
 "use client";
 
+import { MapPin } from "lucide-react";
 import TechStackSection from "../common/tech-stack";
 
 export default function AboutSection() {
@@ -13,6 +14,24 @@ export default function AboutSection() {
             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only p-4">
               About
             </h2>
+            {/* Header */}
+            <div className="mb-8  lg:sr-only">
+              <h4 className="py-2">
+                <span className="underline p-1 text-teal-300">
+                  Assalamu-alikum
+                </span>{" "}
+                , i am
+              </h4>
+              <h1 className="text-3xl font-bold tracking-tight text-slate-200">
+                Touhidul Islam
+              </h1>
+              <h2 className="mt-1 text-base font-medium tracking-tight text-slate-200">
+                Software Engineer
+              </h2>
+              <p className="mt-1 flex items-center gap-1 text-slate-400">
+                <MapPin className="h-4 w-4" /> Dhaka, Bangladesh
+              </p>
+            </div>
             <div className="space-y-4">
               <p className="text-base sm:text-lg leading-relaxed">
                 I turn coffee ☕ and code 💻 into slick, bug-free web magic.

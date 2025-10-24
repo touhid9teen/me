@@ -1,13 +1,11 @@
 import { sections } from "@/lib/variables";
-import SocialIcons from "@/components/common/social-icons";
 import {
-  User,
   Briefcase,
-  GraduationCap,
-  FolderGit2,
   Code2,
+  FolderGit2,
+  GraduationCap,
   Mail,
-  MapPin,
+  User
 } from "lucide-react";
 import { useState } from "react";
 
@@ -70,24 +68,7 @@ export default function MobileSidebarMenu({
         }`}
       >
         <div className="p-6 flex flex-col h-full overflow-y-auto">
-          {/* Header */}
-          <div className="mb-8">
-            <h4 className="py-2">
-              <span className="underline p-1 text-teal-300">
-                Assalamu-alikum
-              </span>{" "}
-              , i am
-            </h4>
-            <h1 className="text-3xl font-bold tracking-tight text-slate-200">
-              Touhidul Islam
-            </h1>
-            <h2 className="mt-1 text-base font-medium tracking-tight text-slate-200">
-              Software Engineer
-            </h2>
-            <p className="mt-1 flex items-center gap-1 text-slate-400">
-              <MapPin className="h-4 w-4" /> Dhaka, Bangladesh
-            </p>
-          </div>
+          
 
           {/* Navigation */}
           <nav aria-label="In-page jump links" className="nav flex-1">
@@ -172,11 +153,6 @@ export default function MobileSidebarMenu({
               })}
             </ul>
           </nav>
-
-          {/* Social Icons */}
-          <div className="mt-6 pt-6 border-t border-slate-800">
-            <SocialIcons />
-          </div>
         </div>
       </div>
     </>

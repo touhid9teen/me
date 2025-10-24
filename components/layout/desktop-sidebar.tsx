@@ -145,7 +145,6 @@ export default function DesktopSidebar({
           </ul>
         </nav>
       </div>
-      <SocialIcons />
     </header>
   );
 }
