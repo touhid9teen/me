@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 type Props = {
   onClick: () => void;
+  isOpen: boolean;
 };
 
-export default function MobileMenuButton({ onClick }: Props) {
+export default function MobileMenuButton({ onClick, isOpen }: Props) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -33,12 +34,12 @@ export default function MobileMenuButton({ onClick }: Props) {
   return (
     <button
       onClick={onClick}
-      className={`lg:hidden fixed top-6 left-6 z-[1000] p-3 w-12 h-12
+      className={`lg:hidden p-3 w-8 h-8
     ${outerBgClass}
     backdrop-blur-sm rounded-full shadow-lg
     hover:scale-110 transition-all duration-300
-    relative overflow-hidden group`}
-      aria-label="Open menu"
+    relative overflow-hidden group flex items-center justify-center`}
+      aria-label={isOpen ? "Close menu" : "Open menu"}
     >
       {/* Teal subtle glow layers */}
       <div className="absolute inset-0 rounded-full pointer-events-none">
@@ -50,10 +51,23 @@ export default function MobileMenuButton({ onClick }: Props) {
         />
       </div>
 
-      {/* Icon */}
-      <Menu
-        className={`relative h-6 w-6 z-10 ${iconColorClass} transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
-      />
+      {/* Icon with transition */}
+      <div className="relative z-10 w-4 h-4 flex items-center justify-center">
+        <Menu
+          className={`h-4 w-4 ${iconColorClass} transition-all duration-300 absolute ${
+            isOpen
+              ? "opacity-0 rotate-90 scale-0"
+              : "opacity-100 rotate-0 scale-100"
+          }`}
+        />
+        <X
+          className={`h-4 w-4 ${iconColorClass} transition-all duration-300 absolute ${
+            isOpen
+              ? "opacity-100 rotate-0 scale-100"
+              : "opacity-0 -rotate-90 scale-0"
+          }`}
+        />
+      </div>
     </button>
   );
 }

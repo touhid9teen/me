@@ -8,7 +8,6 @@ import {
   Code2,
   Mail,
   MapPin,
-  X,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -71,24 +70,21 @@ export default function MobileSidebarMenu({
         }`}
       >
         <div className="p-6 flex flex-col h-full overflow-y-auto">
-          {/* Close Button */}
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 p-2 text-slate-400 hover:text-teal-300 transition-colors duration-200 z-10"
-            aria-label="Close menu"
-          >
-            <X className="h-6 w-6" />
-          </button>
-
           {/* Header */}
           <div className="mb-8">
+            <h4 className="py-2">
+              <span className="underline p-1 text-teal-300">
+                Assalamu-alikum
+              </span>{" "}
+              , i am
+            </h4>
             <h1 className="text-3xl font-bold tracking-tight text-slate-200">
               Touhidul Islam
             </h1>
-            <h2 className="mt-2 text-base font-medium tracking-tight text-slate-200">
+            <h2 className="mt-1 text-base font-medium tracking-tight text-slate-200">
               Software Engineer
             </h2>
-            <p className="mt-3 flex items-center gap-1 text-slate-400">
+            <p className="mt-1 flex items-center gap-1 text-slate-400">
               <MapPin className="h-4 w-4" /> Dhaka, Bangladesh
             </p>
           </div>

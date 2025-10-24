@@ -80,15 +80,11 @@ export default function TechStackSection() {
 
   return (
     <div
-      className={`w-full flex flex-col items-center py-16 px-4 ${
+      className={`w-full flex flex-col items-center py-4 px-4 ${
         isDark ? "bg-slate-900" : "bg-slate-50"
       }`}
     >
-      <h2
-        className={`text-2xl font-bold mb-8 ${
-          isDark ? "text-slate-100" : "text-slate-900"
-        }`}
-      >
+      <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only px-4 py-8">
         Tech Stack
       </h2>
 

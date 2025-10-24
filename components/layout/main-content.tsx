@@ -5,46 +5,34 @@ import ProjectSection from "@/components/sections/project-section";
 import EducationsSections from "@/components/sections/educations-sections";
 import ProblemSolvingSection from "@/components/sections/problem-solving-section";
 import ContactSection from "@/components/sections/contact-section";
+import { SectionWrapper } from "../sections/section-wrapper";
 
 export default function MainContent() {
   return (
-    <main className="pt-8 lg:w-1/2 lg:py-2">
-      <section
-        id="about"
-        className="min-h-screen flex items-center justify-center mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-      >
+    <main className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 pt-6 sm:pt-8 md:pt-10 lg:w-1/2 lg:py-2 lg:px-0">
+      <SectionWrapper id="about">
         <AboutSection />
-      </section>
-      <section
-        id="experience"
-        className="min-h-screen flex items-center justify-center mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-      >
+      </SectionWrapper>
+
+      <SectionWrapper id="experience">
         <ExperienceSection />
-      </section>
-      <section
-        id="education"
-        className="min-h-screen flex items-center justify-center mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-      >
+      </SectionWrapper>
+
+      <SectionWrapper id="education">
         <EducationsSections />
-      </section>
-      <section
-        id="projects"
-        className="min-h-screen flex items-center justify-center mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-      >
+      </SectionWrapper>
+
+      <SectionWrapper id="projects">
         <ProjectSection />
-      </section>
-      <section
-        id="problem-solving"
-        className="min-h-screen flex items-center justify-center mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-      >
+      </SectionWrapper>
+
+      <SectionWrapper id="problem-solving">
         <ProblemSolvingSection />
-      </section>
-      <section
-        id="contact"
-        className="min-h-screen flex items-center justify-center mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-      >
+      </SectionWrapper>
+
+      <SectionWrapper id="contact">
         <ContactSection />
-      </section>
+      </SectionWrapper>
     </main>
   );
 }

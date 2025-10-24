@@ -46,17 +46,21 @@ export default function DesktopSidebar({
   return (
     <header className="hidden lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div>
+        <h4 className="py-2">
+          <span className="underline p-1 text-teal-300">Assalamu-alikum</span> ,
+          i am
+        </h4>
         <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
           Touhidul Islam
         </h1>
-        <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+        <h2 className="mt-2 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
           Software Engineer
         </h2>
         {/* Location with icon */}
-        <p className="mt-4 flex items-center gap-1 text-slate-400">
+        <p className="mt-2 flex items-center gap-1 text-slate-400">
           <MapPin className="h-4 w-4" /> Dhaka, Bangladesh
         </p>
-        <ThemeToggleCorner />
+        {/* <ThemeToggleCorner /> */}
 
         <nav aria-label="In-page jump links" className="nav">
           <ul className="mt-16 w-max">

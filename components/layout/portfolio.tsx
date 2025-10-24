@@ -39,14 +39,23 @@ export default function Portfolio() {
   if (!mounted) return null;
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 pb-16 sm:pb-20 md:pb-24 lg:pb-36 xl:pb-40">
-      {/* Mobile Menu Button */}
-      <MobileMenuButton onClick={() => setIsMobileMenuOpen(true)} />
+    <div className="min-h-screen  bg-slate-900 text-slate-100 pb-16 sm:pb-20 md:pb-24 lg:pb-36 xl:pb-40">
+      <header className="fixed top-0 left-0 w-full z-[999] pointer-events-none">
+        <div className="flex justify-between items-center p-5">
+          {/* Mobile Menu Button */}
+          <div className="pointer-events-auto">
+            <MobileMenuButton
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              isOpen={isMobileMenuOpen}
+            />
+          </div>
 
-      {/* Theme Toggle - Fixed on Mobile, Hidden on Desktop */}
-      <div className="lg:hidden fixed top-6 right-6 z-30">
-        <ThemeToggleCorner />
-      </div>
+          {/* Theme Toggle */}
+          <div className="pointer-events-auto">
+            <ThemeToggleCorner />
+          </div>
+        </div>
+      </header>
 
       {/* Mobile Sidebar Menu */}
       <MobileSidebarMenu
@@ -55,7 +64,6 @@ export default function Portfolio() {
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
       />
-
       <div className="mx-auto max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div className="lg:flex lg:justify-between lg:gap-4">
           <DesktopSidebar
@@ -65,7 +73,6 @@ export default function Portfolio() {
           <MainContent />
         </div>
       </div>
-
       <Footer />
       <WhatsAppChat />
       <ScrollToTopButton visible={showScrollTop} scrollToTop={scrollToTop} />
