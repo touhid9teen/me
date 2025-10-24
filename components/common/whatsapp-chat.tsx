@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MessageCircle, X, Send, Phone, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -26,6 +26,7 @@ export function WhatsAppChat({
   const [inputMessage, setInputMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const toggleChat = () => {
     const newState = !isOpen;
@@ -37,6 +38,11 @@ export function WhatsAppChat({
   useEffect(() => {
     setMessages(welcomeMessages);
   }, []);
+
+  // Auto-scroll to bottom when messages change
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, isTyping]);
 
   // Simulate online status
   useEffect(() => {
@@ -141,6 +147,32 @@ export function WhatsAppChat({
               </div>
             </div>
 
+            {/* Quick Actions */}
+            <div className="p-2 bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 flex-shrink-0">
+              <div className="grid grid-cols-2 gap-1 mb-1">
+                {quickActions.map((action, index) => (
+                  <button
+                    key={index}
+                    onClick={() =>
+                      sendMessage(action.text.split(" ").slice(1).join(" "))
+                    }
+                    className="text-xs sm:text-sm p-1 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors text-slate-700 dark:text-slate-300 font-medium"
+                  >
+                    {action.text}
+                  </button>
+                ))}
+              </div>
+
+              {/* WhatsApp Button */}
+              <button
+                onClick={() => openWhatsApp()}
+                className="w-full bg-green-500 hover:bg-green-600 text-white p-1 rounded-xl font-medium transition-colors flex items-center justify-center space-x-2"
+              >
+                <Phone className="h-4 w-4" />
+                <span className="text-sm">Continue on WhatsApp</span>
+              </button>
+            </div>
+
             {/* Messages - Flexible height */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50 dark:bg-slate-900">
               {messages.map((message) => (
@@ -194,34 +226,9 @@ export function WhatsAppChat({
                   </div>
                 </div>
               )}
-            </div>
 
-            {/* Quick Actions */}
-            <div className="p-3 sm:p-4 bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 flex-shrink-0">
-              <div className="grid grid-cols-2 gap-2 mb-3">
-                {quickActions.map((action, index) => (
-                  <button
-                    key={index}
-                    onClick={() =>
-                      sendMessage(action.text.split(" ").slice(1).join(" "))
-                    }
-                    className="text-xs sm:text-sm p-2 sm:p-2.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors text-slate-700 dark:text-slate-300 font-medium"
-                  >
-                    {action.text}
-                  </button>
-                ))}
-              </div>
-
-              {/* WhatsApp Button */}
-              <button
-                onClick={() => openWhatsApp()}
-                className="w-full bg-green-500 hover:bg-green-600 text-white p-3 sm:p-3.5 rounded-xl font-medium transition-colors flex items-center justify-center space-x-2 mb-3"
-              >
-                <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span className="text-sm sm:text-base">
-                  Continue on WhatsApp
-                </span>
-              </button>
+              {/* Scroll anchor */}
+              <div ref={messagesEndRef} />
             </div>
 
             {/* Message Input */}
