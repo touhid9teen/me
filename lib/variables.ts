@@ -15,7 +15,7 @@ export const experiences = [
     company: "উপায় (UCB Fintech Company Limited)",
     location: "Gulshan, Dhaka",
     description: [
-      "Worked on UCB Super App projects including financial solutions like UClick and UNET, fixing issues and implementing new features for high-performance fintech applications.",
+      "Developed and optimized core platform features, enhanced performance, and ensured reliability through timely issue resolution.",
     ],
     technologies: [
       "Next.js",
@@ -49,7 +49,7 @@ export const projects = [
   {
     title: "Amart - A Grocery E-commerce Site",
     description:
-      "Full-stack grocery e-commerce app with product management, authentication, and checkout flow.",
+      "Designed UI and implemented frontend/backend functionality, developed secure APIs, integrated database operations, and handled JWT-based authentication.",
     image: "./amart.png",
     technologies: [
       "Next.js",
