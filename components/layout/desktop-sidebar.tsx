@@ -47,8 +47,7 @@ export default function DesktopSidebar({
     <header className="hidden lg:sticky lg:top-0 lg:flex lg:max-h-screen  lg:flex-col lg:justify-between lg:py-24">
       <div>
         <h4 className="py-2">
-          <span className="underline p-1 text-teal-300">Assalamu-alikum</span> ,
-          i am
+          <span className=" p-1 text-slate-200">Hey there</span>, i am
         </h4>
         <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
           Touhidul Islam

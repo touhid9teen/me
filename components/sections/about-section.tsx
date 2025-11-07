@@ -17,10 +17,7 @@ export default function AboutSection() {
             {/* Header */}
             <div className="mb-8  lg:sr-only">
               <h4 className="py-2">
-                <span className="underline p-1 text-teal-300">
-                  Assalamu-alikum
-                </span>{" "}
-                , i am
+                <span className=" p-1 text-slate-200">Hey there,</span> I am
               </h4>
               <h1 className="text-3xl font-bold tracking-tight text-slate-200">
                 Touhidul Islam
@@ -44,12 +41,11 @@ export default function AboutSection() {
                 funky creations.
               </p>
             </div>
+            {/* Tech Stack */}
+
+            <TechStackSection />
           </div>
         </div>
-
-        {/* Tech Stack */}
-
-        <TechStackSection />
       </div>
     </div>
   );

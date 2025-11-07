@@ -30,51 +30,40 @@ import { DiJava } from "react-icons/di";
 import { FaMicrosoft } from "react-icons/fa";
 
 const techStack = [
-  { name: "React", icon: SiReact, color: "#61DAFB" },
-
-  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-  { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-  { name: "Django Rest", icon: SiDjango, color: "#092E20" },
-  { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
-  { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-  { name: "GitHub", icon: SiGithub, color: "#181717" },
-  { name: "Python", icon: SiPython, color: "#3776AB" },
-  { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
-  { name: "CSS3", icon: SiCss3, color: "#1572B6" },
-  { name: "C++", icon: SiCplusplus, color: "#00599C" },
-  { name: "Java", icon: DiJava, color: "#007396" },
-  { name: "Linux", icon: SiLinux, color: "#FCC624" },
-  { name: "Redis", icon: SiRedis, color: "#DC382D" },
-  { name: "Postman", icon: SiPostman, color: "#FF6C37" },
-  { name: "VSCode", icon: FaMicrosoft, color: "#007ACC" },
-  { name: "Yarn", icon: SiYarn, color: "#2C8EBB" },
-  { name: "Vite", icon: SiVite, color: "#646CFF" },
-  { name: "Bash", icon: SiGnubash, color: "#4EAA25" },
-  { name: "Figma", icon: SiFigma, color: "#F24E1E" },
-  { name: "Git", icon: SiGit, color: "#F05032" },
-  { name: "MySQL", icon: SiMysql, color: "#4479A1" },
-  { name: "Docker", icon: SiDocker, color: "#2496ED" },
+  { name: "React", icon: SiReact },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
+  { name: "Django Rest", icon: SiDjango },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "Node.js", icon: SiNodedotjs },
+  { name: "GitHub", icon: SiGithub },
+  { name: "Python", icon: SiPython },
+  { name: "HTML5", icon: SiHtml5 },
+  { name: "CSS3", icon: SiCss3 },
+  { name: "C++", icon: SiCplusplus },
+  { name: "Java", icon: DiJava },
+  { name: "Linux", icon: SiLinux },
+  { name: "Redis", icon: SiRedis },
+  { name: "Postman", icon: SiPostman },
+  { name: "VSCode", icon: FaMicrosoft },
+  { name: "Yarn", icon: SiYarn },
+  { name: "Vite", icon: SiVite },
+  { name: "Bash", icon: SiGnubash },
+  { name: "Figma", icon: SiFigma },
+  { name: "Git", icon: SiGit },
+  { name: "MySQL", icon: SiMysql },
+  { name: "Docker", icon: SiDocker },
 ];
-
-const pyramidCounts = [1, 2, 3, 4, 5, 4, 3, 2, 1];
 
 export default function TechStackSection() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [hoveredTech, setHoveredTech] = useState<string | null>(null);
 
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
-
-  // Split techStack into pyramid rows
-  const rows: (typeof techStack)[][] = [];
-  let index = 0;
-  for (let count of pyramidCounts) {
-    rows.push(techStack.slice(index, index + count));
-    index += count;
-  }
-  if (index < techStack.length) rows.push(techStack.slice(index));
 
   const isDark = theme === "dark";
 
@@ -84,41 +73,54 @@ export default function TechStackSection() {
         isDark ? "bg-slate-900" : "bg-slate-50"
       }`}
     >
-      <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200  px-4 py-2 pb-6">
+      <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 px-4 py-2 pb-6">
         Tech Stack
       </h2>
 
-      <div className="flex flex-col gap-3">
-        {rows.map((row, rowIndex) => (
-          <div key={rowIndex} className="flex justify-center gap-2 flex-wrap">
-            {row.map((tech, techIndex) => {
-              const Icon = tech.icon;
-              const bgColor = isDark ? `${tech.color}50` : `${tech.color}20`;
-              const textColor = isDark ? "#fff" : "#1e293b";
+      <ul className="flex flex-wrap justify-center gap-1.5 max-w-5xl">
+        {techStack.map((tech) => {
+          const Icon = tech.icon;
+          const isHovered = hoveredTech === tech.name;
 
-              return (
-                <div
-                  key={techIndex}
-                  className="flex items-center gap-1 px-2 py-1 rounded-full"
+          return (
+            <li
+              key={tech.name}
+              className="relative"
+              onMouseEnter={() => setHoveredTech(tech.name)}
+              onMouseLeave={() => setHoveredTech(null)}
+            >
+              {/* Active/Hover Background Glow */}
+              {isHovered && (
+                <>
+                  <span className="absolute inset-0 bg-gradient-to-r from-teal-500/20 via-teal-400/30 to-teal-500/20 rounded-md blur-md animate-pulse" />
+                  <span className="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-transparent rounded-md" />
+                </>
+              )}
+
+              {/* Tech Badge */}
+              <div
+                className={`relative flex items-center gap-1.5 px-2.5  rounded-md transition-all duration-300 ${
+                  isHovered ? "bg-teal-400/20" : "bg-teal-400/10"
+                } ${!isDark ? "border border-teal-300 py-1" : "py-1.5"}`}
+              >
+                <Icon
+                  className="w-3.5 h-3.5 transition-all duration-300 text-teal-300"
                   style={{
-                    backgroundColor: bgColor,
-                    color: textColor,
-                    boxShadow: `0 4px 12px ${bgColor}, inset 0 0 6px ${bgColor}`,
+                    filter: isHovered
+                      ? "drop-shadow(0 2px 4px rgba(45, 212, 191, 0.4)) drop-shadow(0 0 8px rgba(45, 212, 191, 0.3))"
+                      : "none",
                   }}
+                />
+                <span
+                  className={`text-xs font-medium transition-colors duration-300 text-teal-300`}
                 >
-                  <Icon
-                    className={`w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5`}
-                    style={{ color: textColor }}
-                  />
-                  <span className="text-[9px] sm:text-xs md:text-sm font-semibold">
-                    {tech.name}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        ))}
-      </div>
+                  {tech.name}
+                </span>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

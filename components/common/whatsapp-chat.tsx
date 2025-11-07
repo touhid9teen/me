@@ -65,7 +65,11 @@ export function WhatsAppChat({
     };
   }, [isOpen]);
 
-  const sendMessage = async (text: string) => {
+  const sendMessage = async (text: string, e?: React.SyntheticEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     if (!text.trim()) return;
 
     const userMessage: Message = {
@@ -110,7 +114,8 @@ export function WhatsAppChat({
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 backdrop-blur-sm z-500 transition-all duration-300"
-          onClick={toggleChat}
+          // onClick={toggleChat}
+          onClick={(e) => e.stopPropagation()}
           aria-hidden="true"
         />
       )}
@@ -244,14 +249,17 @@ export function WhatsAppChat({
                   placeholder="Type a message..."
                   className="flex-1 px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200"
                 />
-                <Button
-                  onClick={() => sendMessage(inputMessage)}
+                {/* <Button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    sendMessage(inputMessage);
+                  }}
                   size="sm"
                   className="bg-green-500 hover:bg-green-600 text-white rounded-full p-2 sm:p-2.5"
                   aria-label="Send message"
                 >
                   <Send className="h-4 w-4 sm:h-5 sm:w-5" />
-                </Button>
+                </Button> */}
               </div>
             </div>
           </div>
