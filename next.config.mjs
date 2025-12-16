@@ -11,8 +11,8 @@ const nextConfig = {
   },
   output: "export",
   basePath: "/me",
-  assetPrefix: "/me",
-  trailingSlash: true, // Optional: helps with GitHub Pages routing
+  assetPrefix: "/me/",
+  trailingSlash: true,
 };
 
 export default nextConfig;

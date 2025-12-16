@@ -1,6 +1,7 @@
 import type React from "react";
 import type { Metadata } from "next";
 import { Crimson_Text } from "next/font/google";
+// @ts-ignore
 import "./globals.css";
 import { ThemeProvider } from "@/components/common/theme-provider";
 import HexagonLoader from "@/components/common/hexagon-loader";
@@ -17,12 +18,7 @@ export const metadata: Metadata = {
   title: "Touhid",
   description: "Portfolio...",
   icons: {
-    icon: [
-      {
-        url: "/favicon.svg",
-        type: "image/svg+xml",
-      },
-    ],
+    icon: "/me/favicon.svg",
   },
 };
 
