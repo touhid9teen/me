@@ -61,14 +61,6 @@ export const projects = [
     ],
     live: "https://amart.com.bd",
   },
-  {
-    title: "UClick Portal - UCB’s Digital Banking App",
-    description:
-      "Enhanced frontend UI, resolved bugs, and improved performance for UCB’s digital banking portal.",
-    image: "./ucb.png",
-    technologies: ["Next.js", "Tailwind CSS"],
-    live: "https://digital.ucb.com.bd/",
-  },
 ];
 
 export const education = [
