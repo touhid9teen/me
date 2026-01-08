@@ -14,6 +14,7 @@ export const experiences = [
     title2: "Software Engineer Intern",
     company: "উপায় (UCB Fintech Company Limited)",
     location: "Gulshan, Dhaka",
+    link: "https://www.upaybd.com/",
     description: [
       "Developed and optimized core platform features, enhanced performance, and ensured reliability through timely issue resolution.",
     ],
@@ -32,6 +33,7 @@ export const experiences = [
     title2: "Geeky Solution (Learnathon 2.0)",
     company: "Vivasoft Limited",
     location: "Remote",
+    link: "https://vivasoftltd.com/",
     description: [
       "Learned industry-standard coding practices while developing components, layouts, and functionalities for Vivasoft's contact management application.",
     ],
@@ -59,7 +61,15 @@ export const projects = [
       "JWT",
       "Git",
     ],
-    live: "https://amart.com.bd",
+    live: "https://github.com/touhid9teen/amart",
+  },
+  {
+    title: "Task Master - A Task Management App",
+    description:
+      "Built a simplified task management app for organizing daily activities, featuring task creation, updates, and tracking completion status.",
+    image: "./task-master.png",
+    technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+    live: "https://task-master-tau-ruddy.vercel.app/",
   },
 ];
 

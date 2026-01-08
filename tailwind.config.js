@@ -56,7 +56,28 @@ module.exports = {
         md: "0.75rem",
         sm: "0.5rem",
       },
+      keyframes: {
+        shimmer: {
+          "0%": { transform: "translateX(-150%)" },
+          "100%": { transform: "translateX(150%)" },
+        },
+        tilt: {
+          "0%, 50%, 100%": {
+            transform: "rotate(0deg)",
+          },
+          "25%": {
+            transform: "rotate(0.5deg)",
+          },
+          "75%": {
+            transform: "rotate(-0.5deg)",
+          },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 2.5s infinite",
+        tilt: "tilt 5s infinite linear",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };

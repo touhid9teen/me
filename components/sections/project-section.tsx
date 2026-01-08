@@ -1,120 +1,85 @@
-// components/sections/project-section.tsx
 "use client";
 
-import { useState, useEffect } from "react";
 import { projects } from "@/lib/variables";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "../ui/badge";
-import { useTheme } from "next-themes";
 import Link from "next/link";
 
 export default function ProjectSection() {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const textColor = theme === "dark" ? "text-slate-200" : "text-slate-900";
-  const textDesc = theme === "dark" ? "text-slate-400" : "text-slate-800/90";
-  const hoverText =
-    theme === "dark"
-      ? "group-hover:text-teal-300"
-      : "group-hover:text-teal-600";
-
-  const hoverBgClass =
-    theme === "dark"
-      ? "dark:lg:group-hover:bg-slate-800/50"
-      : "lg:group-hover:bg-teal-500/10";
-
   return (
     <div className="w-full">
-      <h2
-        className={`text-sm font-bold uppercase tracking-widest ${textColor} lg:sr-only p-4`}
-      >
+      <h2 className="mb-8 text-xl font-bold uppercase tracking-widest text-slate-800 dark:text-slate-100 lg:sr-only">
         Projects
       </h2>
 
-      <ul className="group/list">
+      <ul className="group/list space-y-12">
         {projects.map((project, index) => (
-          <li
-            key={index}
-            className="group mb-8 sm:mb-12 p-4 sm:p-6 relative rounded-md overflow-hidden"
-          >
-            {/* Hover Background */}
-            <div
-              className={`absolute inset-0 z-0 hidden lg:block rounded-md transition-colors duration-300 ${hoverBgClass} lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)]`}
-            />
+            <li key={index} className="group relative transition-all duration-300 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+              <div className="relative grid gap-4 pb-1 transition-all sm:grid-cols-12 sm:gap-8 lg:p-6 lg:rounded-xl lg:hover:bg-transparent lg:hover:shadow-md lg:hover:border-slate-300 lg:dark:hover:bg-slate-800/40 lg:dark:hover:border-slate-700/50 overflow-hidden border border-transparent">
+                
+                {/* Image */}
+                <div className="order-2 sm:order-1 sm:col-span-4 relative mt-2 sm:mt-0">
+                  <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-200/60 bg-slate-50 dark:bg-slate-800 dark:border-slate-700/50 transition-all group-hover:scale-[1.02] group-hover:shadow-md">
+                    <Image
+                      alt={project.title}
+                      src={project.image || "/placeholder.svg"}
+                      fill
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                </div>
 
-            <div className="relative z-10 grid gap-4 pb-1 sm:grid-cols-12 sm:gap-6 md:gap-8">
-              {/* Project Text */}
-              <div className="sm:order-2 sm:col-span-8 min-w-0">
-                <h3>
-                  <Link
-                    href={project.live}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`inline-flex items-baseline font-medium leading-tight text-sm sm:text-base transition-colors ${textColor} ${hoverText} break-words`}
-                  >
-                    <span className="break-words">{project.title}</span>
-                    <ExternalLink className="inline-block h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" />
-                  </Link>
-                </h3>
+                {/* Content */}
+                <div className="order-1 sm:order-2 sm:col-span-8 z-10 flex flex-col justify-between">
+                  <div>
+                    <h3 className="group/link text-base font-bold leading-tight text-slate-800 dark:text-slate-100 mb-2">
+                       <Link
+                          href={project.live}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center hover:text-teal-700 dark:hover:text-teal-300 gap-1 transition-colors"
+                        >
+                          <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                          <span>{project.title}</span>
+                          <ExternalLink className="ml-1 h-4 w-4 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
+                        </Link>
+                    </h3>
+                    
+                    <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400 font-medium">
+                      {project.description}
+                    </p>
+                  </div>
 
-                <p
-                  className={`mt-2 text-xs sm:text-sm leading-normal ${textDesc} break-words`}
-                >
-                  {project.description}
-                </p>
+                  <ul className="mt-4 flex flex-wrap gap-2" aria-label="Technologies used">
+                    {project.technologies.map((tech, techIndex) => (
+                      <li key={techIndex}>
+                        <Badge
+                          variant="secondary"
+                          className="bg-slate-100 text-slate-700 hover:bg-slate-200 border-slate-200 dark:bg-teal-400/10 dark:text-teal-300 dark:hover:bg-teal-400/20 text-xs px-2.5 py-1 rounded-full border dark:border-teal-500/10 transition-colors font-mono font-medium"
+                        >
+                          {tech}
+                        </Badge>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-                <ul className="mt-2 flex flex-wrap gap-1.5">
-                  {project.technologies.map((tech, techIndex) => (
-                    <li key={techIndex}>
-                      <Badge
-                        variant="secondary"
-                        className="bg-teal-400/10 text-teal-300 hover:bg-teal-400/20 text-xs"
-                      >
-                        {tech}
-                      </Badge>
-                    </li>
-                  ))}
-                </ul>
               </div>
-
-              {/* Project Image */}
-              <div className="sm:order-1 sm:col-span-4">
-                <Image
-                  alt={project.title}
-                  loading="lazy"
-                  width={500}
-                  height={300}
-                  src={project.image || "/placeholder.svg"}
-                  unoptimized={true}
-                  className="w-full h-auto rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
-                />
-              </div>
-            </div>
-          </li>
+            </li>
         ))}
       </ul>
-
-      {/* View All Projects */}
-      <div className="mt-8 p-4 sm:mt-12">
+      <div className="mt-12">
         <Link
-          className={`inline-flex items-center font-medium leading-tight text-sm sm:text-base ${textColor} group break-words`}
+          className="inline-flex items-center gap-2 text-sm font-bold text-slate-800 dark:text-slate-100 hover:text-teal-700 dark:hover:text-teal-300 transition-colors group"
           href="https://github.com/touhid9teen"
           target="_blank"
           rel="noreferrer"
         >
-          <span>
-            <span
-              className={`border-b border-transparent pb-px transition group-hover:border-teal-300 motion-reduce:transition-none`}
-            >
-              View Full Project Archive
-            </span>
-            <ExternalLink className="ml-1 inline-block h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transition-none" />
+          <span className="border-b border-transparent group-hover:border-teal-700 dark:group-hover:border-teal-300 transition-colors">
+            View Full Project Archive
           </span>
+          <Github className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Link>
       </div>
     </div>

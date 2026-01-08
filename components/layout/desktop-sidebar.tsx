@@ -49,7 +49,7 @@ export default function DesktopSidebar({
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
           <div className="relative group">
             <div className="absolute -inset-0.5  rounded-full opacity-75 group-hover:opacity-100 blur transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-            <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-[3px] border-slate-900 shadow-xl">
+            <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-[3px] border-slate-900 shadow-xl">
               <Image
                  src={meImg}
                 alt="Touhidul Islam"

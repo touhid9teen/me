@@ -40,7 +40,7 @@ export default function Portfolio() {
   if (!mounted) return null;
 
   return (
-    <div className="min-h-screen  bg-slate-900 text-slate-100 pb-16 sm:pb-20 md:pb-24 lg:pb-36 xl:pb-40 ">
+    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 pb-16 sm:pb-20 md:pb-24 lg:pb-36 xl:pb-40 transition-colors duration-300">
       {/* <header className="fixed top-0 left-0 w-full z-[999] pointer-events-none"> */}
       <header
         className={`fixed top-0 left-0 w-full z-[999] pointer-events-none transition-all duration-300 ${

@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
 import {
   SiNextdotjs,
   SiReact,
@@ -58,26 +57,15 @@ const techStack = [
 ];
 
 export default function TechStackSection() {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
 
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  const isDark = theme === "dark";
-
   return (
-    <div
-      className={`w-full flex flex-col items-center py-4 px-4 ${
-        isDark ? "bg-slate-900" : "bg-slate-50"
-      }`}
-    >
-      <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 px-4 py-2 pb-6">
-        Tech Stack
-      </h2>
+    <div className="w-full flex flex-col items-start py-6">
+      <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+        Technologies
+      </h3>
 
-      <ul className="flex flex-wrap justify-center gap-1.5 max-w-5xl">
+      <ul className="flex flex-wrap gap-2">
         {techStack.map((tech) => {
           const Icon = tech.icon;
           const isHovered = hoveredTech === tech.name;
@@ -85,34 +73,25 @@ export default function TechStackSection() {
           return (
             <li
               key={tech.name}
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setHoveredTech(tech.name)}
               onMouseLeave={() => setHoveredTech(null)}
             >
-              {/* Active/Hover Background Glow */}
-              {isHovered && (
-                <>
-                  <span className="absolute inset-0 bg-gradient-to-r from-teal-500/20 via-teal-400/30 to-teal-500/20 rounded-md blur-md animate-pulse" />
-                  <span className="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-transparent rounded-md" />
-                </>
-              )}
-
               {/* Tech Badge */}
               <div
-                className={`relative flex items-center gap-1.5 px-2.5  rounded-md transition-all duration-300 ${
-                  isHovered ? "bg-teal-400/20" : "bg-teal-400/10"
-                } ${!isDark ? "border border-teal-300 py-1" : "py-1.5"}`}
+                className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-300 border
+                  ${
+                    isHovered 
+                      ? "bg-teal-50 border-teal-200 dark:bg-teal-400/20 dark:border-teal-400/30 scale-105 shadow-sm" 
+                      : "bg-slate-50 border-slate-200 dark:bg-slate-800/50 dark:border-slate-700/50"
+                  }
+                `}
               >
                 <Icon
-                  className="w-3.5 h-3.5 transition-all duration-300 text-teal-300"
-                  style={{
-                    filter: isHovered
-                      ? "drop-shadow(0 2px 4px rgba(45, 212, 191, 0.4)) drop-shadow(0 0 8px rgba(45, 212, 191, 0.3))"
-                      : "none",
-                  }}
+                  className={`w-3.5 h-3.5 transition-all duration-300 ${isHovered ? "text-teal-600 dark:text-teal-300" : "text-slate-600 dark:text-slate-400"}`}
                 />
                 <span
-                  className={`text-xs font-medium transition-colors duration-300 text-teal-300`}
+                  className={`text-xs font-medium transition-colors duration-300 ${isHovered ? "text-teal-700 dark:text-teal-200" : "text-slate-700 dark:text-slate-300"}`}
                 >
                   {tech.name}
                 </span>

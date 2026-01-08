@@ -7,55 +7,46 @@ import Link from "next/link";
 export default function ProblemSolvingSection() {
   return (
     <div className="w-full">
-      <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only p-4">
+      <h2 className="mb-8 text-xl font-bold uppercase tracking-widest text-slate-800 dark:text-slate-100 lg:sr-only">
         Problem Solving
       </h2>
 
       <ol className="group/list">
         {problemSolvingData.map((achievement, index) => (
-          <li key={index} className="mb-8 sm:mb-12">
-            <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-8 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 p-4 sm:p-6 rounded-md">
-              <div
-                className="absolute inset-0 z-0 hidden rounded-md transition 
-             motion-reduce:transition-none lg:block
-             lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)]
-             dark:lg:group-hover:bg-slate-800/50
-             lg:group-hover:bg-teal-500/10"
-              ></div>
-
-              <header className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
+          <li key={index} className="group relative transition-all duration-300 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+           <div className="relative mb-8 sm:mb-12 grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-6 md:gap-8 lg:p-6 lg:rounded-xl lg:hover:bg-transparent lg:hover:shadow-md lg:hover:border-slate-300 lg:dark:hover:bg-slate-800/40 lg:dark:hover:border-slate-700/50 overflow-hidden border border-transparent">
+              
+              <header className="z-10 mb-2 mt-1 text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400 sm:col-span-2">
                 {achievement.rating}
               </header>
 
               <div className="z-10 sm:col-span-6 min-w-0">
-                <h3 className="font-medium leading-snug text-slate-200">
+                <h3 className="font-semibold leading-snug text-slate-800 dark:text-slate-100">
                   <div>
                     <Link
                       href={achievement.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-sm sm:text-base break-words"
+                      className="inline-flex items-baseline font-bold leading-tight hover:text-teal-700 dark:hover:text-teal-300 focus-visible:text-teal-700 focus-visible:dark:text-teal-300 group/link text-base transition-colors"
                     >
                       <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                      <span className="break-words">
-                        {achievement.platform}
-                      </span>
-                      <ExternalLink className="inline-block h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" />
+                      <span>{achievement.platform}</span>
+                      <ExternalLink className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 motion-reduce:transition-none" />
                     </Link>
                   </div>
-                  <div className="text-slate-400 text-xs sm:text-sm mt-1 break-words">
+                  <div className="text-slate-600 dark:text-slate-400 text-sm mt-1 font-medium">
                     Max Rating: {achievement.maxRating || achievement.solved} •{" "}
                     {achievement.contests} Contests
                   </div>
                 </h3>
-                <p className="mt-2 text-xs sm:text-sm leading-normal text-slate-400 break-words">
+                <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400 font-medium">
                   {achievement.description}
                 </p>
-                <ul className="mt-2 flex flex-wrap gap-1.5">
+                <ul className="mt-4 flex flex-wrap gap-2">
                   <li>
                     <Badge
                       variant="secondary"
-                      className="bg-teal-400/10 text-teal-300 hover:bg-teal-400/20 text-xs"
+                      className="bg-slate-100 text-slate-700 hover:bg-slate-200 border-slate-200 dark:bg-teal-400/10 dark:text-teal-300 dark:hover:bg-teal-400/20 text-xs px-2.5 py-1 rounded-full border dark:border-teal-500/10 transition-colors font-mono font-medium"
                     >
                       Algorithms
                     </Badge>
@@ -63,7 +54,7 @@ export default function ProblemSolvingSection() {
                   <li>
                     <Badge
                       variant="secondary"
-                      className="bg-teal-400/10 text-teal-300 hover:bg-teal-400/20 text-xs"
+                       className="bg-slate-100 text-slate-700 hover:bg-slate-200 border-slate-200 dark:bg-teal-400/10 dark:text-teal-300 dark:hover:bg-teal-400/20 text-xs px-2.5 py-1 rounded-full border dark:border-teal-500/10 transition-colors font-mono font-medium"
                     >
                       Data Structures
                     </Badge>
@@ -71,7 +62,7 @@ export default function ProblemSolvingSection() {
                   <li>
                     <Badge
                       variant="secondary"
-                      className="bg-teal-400/10 text-teal-300 hover:bg-teal-400/20 text-xs"
+                       className="bg-slate-100 text-slate-700 hover:bg-slate-200 border-slate-200 dark:bg-teal-400/10 dark:text-teal-300 dark:hover:bg-teal-400/20 text-xs px-2.5 py-1 rounded-full border dark:border-teal-500/10 transition-colors font-mono font-medium"
                     >
                       Problem Solving
                     </Badge>
