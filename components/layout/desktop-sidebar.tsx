@@ -1,16 +1,15 @@
+import meImg from "@/assets/me.jpg";
 import { sections } from "@/lib/variables";
-import Image from "next/image";
-import SocialIcons from "@/components/common/social-icons";
-import ThemeToggleCorner from "@/components/common/theme-toggle-corner";
 import {
-  User,
   Briefcase,
-  GraduationCap,
-  FolderGit2,
   Code2,
+  FolderGit2,
+  GraduationCap,
   Mail,
   MapPin,
+  User,
 } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 
 type Props = {
@@ -52,7 +51,7 @@ export default function DesktopSidebar({
             <div className="absolute -inset-0.5  rounded-full opacity-75 group-hover:opacity-100 blur transition duration-1000 group-hover:duration-200 animate-tilt"></div>
             <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-[3px] border-slate-900 shadow-xl">
               <Image
-                 src="/me.jpg"
+                 src={meImg}
                 alt="Touhidul Islam"
                 fill
                 className="object-cover transform transition-transform duration-500 group-hover:scale-110"

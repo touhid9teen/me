@@ -11,7 +11,6 @@ const nextConfig = {
   },
   output: "export",
   basePath: "/me",
-  assetPrefix: "/me/",
   trailingSlash: true,
 };
 
