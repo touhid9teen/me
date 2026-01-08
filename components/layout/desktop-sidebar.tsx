@@ -1,4 +1,5 @@
 import { sections } from "@/lib/variables";
+import Image from "next/image";
 import SocialIcons from "@/components/common/social-icons";
 import ThemeToggleCorner from "@/components/common/theme-toggle-corner";
 import {
@@ -44,21 +45,40 @@ export default function DesktopSidebar({
   };
 
   return (
-    <header className="hidden lg:sticky lg:top-0 lg:flex lg:max-h-screen  lg:flex-col lg:justify-between lg:py-24">
+    <header className="hidden lg:col-span-2 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:flex-col lg:justify-between lg:py-24">
       <div>
-        <h4 className="py-2">
-          <span className=" p-1 text-slate-200">Hey there</span>, i am
-        </h4>
-        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-          Touhidul Islam
-        </h1>
-        <h2 className="mt-2 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
-          Software Engineer
-        </h2>
-        {/* Location with icon */}
-        <p className="mt-2 flex items-center gap-1 text-slate-400">
-          <MapPin className="h-4 w-4" /> Dhaka, Bangladesh
-        </p>
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
+          <div className="relative group">
+            <div className="absolute -inset-0.5  rounded-full opacity-75 group-hover:opacity-100 blur transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+            <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-[3px] border-slate-900 shadow-xl">
+              <Image
+                 src="/me.jpg"
+                alt="Touhidul Islam"
+                fill
+                className="object-cover transform transition-transform duration-500 group-hover:scale-110"
+                priority
+              />
+            </div>
+          </div>
+          <div className="flex flex-col justify-center">
+            <div className="inline-flex items-center gap-2 mb-2">
+                 <span className="text-teal-600 dark:text-teal-400 font-mono text-sm tracking-wider">Hi, I'm</span>
+            </div>
+            <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white whitespace-nowrap sm:text-5xl">
+              Touhidul Islam
+            </h1>
+            <h2 className="mt-2 text-lg font-medium tracking-wide text-slate-700 dark:text-slate-200 bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-500 dark:from-slate-200 dark:to-slate-400">
+              Software Engineer
+            </h2>
+            <div className="mt-3 flex flex-col gap-4">
+                 <p className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm font-medium">
+                    <MapPin className="h-4 w-4 text-teal-600 dark:text-teal-500" /> 
+                    <span>Dhaka, Bangladesh</span>
+                 </p>
+                 {/* <SocialIcons /> */}
+            </div>
+          </div>
+        </div>
         {/* <ThemeToggleCorner /> */}
 
         <nav aria-label="In-page jump links" className="nav">

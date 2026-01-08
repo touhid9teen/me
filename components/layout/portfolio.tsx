@@ -74,7 +74,7 @@ export default function Portfolio() {
       />
       <div className="mx-auto max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 ">
         <div
-          className="lg:grid lg:grid-cols-3
+          className="lg:grid lg:grid-cols-5 gap-8
         "
         >
           <DesktopSidebar
@@ -82,7 +82,7 @@ export default function Portfolio() {
             scrollToSection={scrollToSection}
           />
 
-          <div className="lg:col-span-2 items-center flex justify-center ">
+          <div className="lg:col-span-3 items-center flex justify-center ">
             <MainContent />
           </div>
         </div>
