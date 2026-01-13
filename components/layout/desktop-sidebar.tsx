@@ -52,7 +52,7 @@ export default function DesktopSidebar({
             <div className="absolute -inset-0.5  rounded-full opacity-75 group-hover:opacity-100 blur transition duration-1000 group-hover:duration-200 animate-tilt"></div>
             <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-[3px] border-slate-900 shadow-xl">
               <Image
-                 src="/assets/me.jpg"
+                 src="/me/assets/me.jpg"
                 alt="Touhidul Islam"
                 fill
                 className="object-cover transform transition-transform duration-500 group-hover:scale-110"

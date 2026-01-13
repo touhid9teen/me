@@ -13,7 +13,7 @@ export default function AboutSection() {
         <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
           <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-[3px] border-slate-900/10 dark:border-slate-100/10 shadow-md">
             <Image
-              src="/assets/me.jpg"
+              src="/me/assets/me.jpg"
               alt="Touhidul Islam"
               fill
               className="object-cover"
