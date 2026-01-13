@@ -1,4 +1,3 @@
-import meImg from "@/assets/me.jpg";
 import { sections } from "@/lib/variables";
 import {
   Briefcase,
@@ -8,6 +7,7 @@ import {
   Mail,
   MapPin,
   User,
+  BookOpen,
 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -24,6 +24,7 @@ const sectionIcons = {
   projects: FolderGit2,
   "problem-solving": Code2,
   contact: Mail,
+  blogs: BookOpen,
 };
 
 export default function DesktopSidebar({
@@ -51,7 +52,7 @@ export default function DesktopSidebar({
             <div className="absolute -inset-0.5  rounded-full opacity-75 group-hover:opacity-100 blur transition duration-1000 group-hover:duration-200 animate-tilt"></div>
             <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-[3px] border-slate-900 shadow-xl">
               <Image
-                 src={meImg}
+                 src="/assets/me.jpg"
                 alt="Touhidul Islam"
                 fill
                 className="object-cover transform transition-transform duration-500 group-hover:scale-110"

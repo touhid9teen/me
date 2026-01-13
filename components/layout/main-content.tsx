@@ -1,33 +1,23 @@
 "use client";
 import AboutSection from "@/components/sections/about-section";
-import ExperienceSection from "@/components/sections/experience-section";
 import ProjectSection from "@/components/sections/project-section";
-import EducationsSections from "@/components/sections/educations-sections";
-import ProblemSolvingSection from "@/components/sections/problem-solving-section";
+import BlogSection from "@/components/sections/blog-section";
 import ContactSection from "@/components/sections/contact-section";
 import { SectionWrapper } from "./section-wrapper";
 
 export default function MainContent() {
   return (
-    <main className="w-full">
+    <main className="w-full space-y-24 lg:space-y-32">
       <SectionWrapper id="about">
         <AboutSection />
-      </SectionWrapper>
-
-      <SectionWrapper id="experience">
-        <ExperienceSection />
-      </SectionWrapper>
-
-      <SectionWrapper id="education">
-        <EducationsSections />
       </SectionWrapper>
 
       <SectionWrapper id="projects">
         <ProjectSection />
       </SectionWrapper>
 
-      <SectionWrapper id="problem-solving">
-        <ProblemSolvingSection />
+      <SectionWrapper id="blogs">
+        <BlogSection />
       </SectionWrapper>
 
       <SectionWrapper id="contact">

@@ -1,10 +1,41 @@
 export const sections = [
   { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "education", label: "Education" },
   { id: "projects", label: "Projects" },
-  { id: "problem-solving", label: "Problem Solving" },
+  { id: "blogs", label: "Blogs" },
   { id: "contact", label: "Contact" },
+];
+
+export const dummyBlogs = [
+  {
+    id: 1,
+    title: "Understanding React Server Components",
+    summary:
+      "A deep dive into how React Server Components work and how they differ from Client Components...",
+    date: "Oct 2025",
+    readTime: "5 min read",
+    link: "#",
+    tags: ["React", "Next.js"],
+  },
+  {
+    id: 2,
+    title: "Mastering Tailwind CSS for Scalable Design",
+    summary:
+      "Best practices for using Tailwind CSS in large-scale applications to maintain consistency...",
+    date: "Sep 2025",
+    readTime: "4 min read",
+    link: "#",
+    tags: ["CSS", "Tailwind"],
+  },
+  {
+    id: 3,
+    title: "Optimizing Web Performance with Next.js",
+    summary:
+      "Techniques and strategies to improve your Next.js application's performance and Core Web Vitals...",
+    date: "Aug 2025",
+    readTime: "6 min read",
+    link: "#",
+    tags: ["Performance", "Next.js"],
+  },
 ];
 
 export const experiences = [
@@ -170,6 +201,13 @@ export const problemSolvingData = [
       "Solved 100+ problems with participation in long and short contests, emphasizing optimized algorithmic techniques.",
   },
 ];
+
+interface Message {
+  id: string;
+  text: string;
+  sender: "user" | "bot";
+  timestamp: Date;
+}
 
 export const welcomeMessages: Message[] = [
   {

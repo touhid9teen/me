@@ -5,7 +5,8 @@ import {
   FolderGit2,
   GraduationCap,
   Mail,
-  User
+  User,
+  BookOpen
 } from "lucide-react";
 import { useState } from "react";
 
@@ -23,6 +24,7 @@ const sectionIcons = {
   projects: FolderGit2,
   "problem-solving": Code2,
   contact: Mail,
+  blogs: BookOpen,
 };
 
 export default function MobileSidebarMenu({

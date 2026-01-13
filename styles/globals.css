@@ -123,9 +123,7 @@ body {
   color: hsl(var(--foreground));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  max-width: 70ch;
-  margin: 0 auto;
-  padding: 1rem;
+  margin: 0;
 }
 
 /* Images */
