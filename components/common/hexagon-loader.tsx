@@ -17,7 +17,7 @@ export default function HexagonLoader() {
   if (!isLoading) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-[#F0E7DB] dark:bg-slate-900 transition-colors">
+    <div className="fixed inset-0 z-[99999] bg-[#F0E7DB] dark:bg-slate-900 transition-colors">
       <div className="loader-container">
         <div className="hexagon-wrapper">
           {/* SVG Hexagon */}
