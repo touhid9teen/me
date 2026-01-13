@@ -49,28 +49,85 @@ export const experiences = [
 
 export const projects = [
   {
-    title: "Amart - A Grocery E-commerce Site",
+    title: "Amart | Grocery E-commerce Site",
     description:
-      "Designed UI and implemented frontend/backend functionality, developed secure APIs, integrated database operations, and handled JWT-based authentication.",
-    image: "./amart.png",
+      "Full-stack e-commerce platform with secure authentication, product management, and order processing.",
+    image: ["/assets/amart1.png", "/assets/amart2.png", "/assets/amart3.png"],
     technologies: [
+      "React",
       "Next.js",
+      "TypeScript",
       "Tailwind CSS",
       "Django REST Framework",
       "PostgreSQL",
       "JWT",
-      "Git",
+      "React Query",
     ],
-    live: "https://github.com/touhid9teen/amart",
+    live: "https://amart-dusky.vercel.app/",
+    frontend: "https://github.com/touhid9teen/amart",
+    backend: "https://github.com/touhid9teen/amart-backend",
   },
   {
-    title: "Task Master - A Task Management App",
+    title: "ChronoTask",
     description:
-      "Built a simplified task management app for organizing daily activities, featuring task creation, updates, and tracking completion status.",
-    image: "./task-master.png",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
-    live: "https://task-master-tau-ruddy.vercel.app/",
+      "Task management application with time tracking, note taking, and Google Drive sync.",
+    image: [
+      "/assets/chronoTask1.png",
+      "/assets/chronoTask2.png",
+      "/assets/chronoTask3.png",
+      "/assets/chronoTask4.png",
+      "/assets/chronoTask5.png",
+    ],
+    technologies: ["Next.js", "Tailwind CSS"],
+    live: "https://chrono-task-kappa.vercel.app/",
+    source: "https://github.com/touhid9teen/ChronoTask",
   },
+  {
+    title: "Alumni Management System ICE-RU",
+    description:
+      "Web application for managing alumni records, events, and communications for a university department.",
+    image: [
+      "/assets/alumni1.png",
+      "/assets/alumni2.png",
+      "/assets/alumni3.png",
+      "/assets/alumni4.png",
+      "/assets/alumni5.png",
+      "/assets/alumni6.png",
+    ],
+    technologies: ["React", "Tailwind CSS"],
+    live: "https://alumni-management-system-ice-ru.vercel.app/",
+    source: "https://github.com/touhid9teen/Alumni-Management-System-ICE-RU",
+  },
+  {
+    title: "JSON Tree Explorer",
+    description:
+      "Tree visualizer that enables users to explore hierarchical data structures.",
+    image: ["/assets/tree-explorar.png"],
+    technologies: ["React", "Tailwind CSS"],
+    live: "https://collapsible-tree-explorer.vercel.app/",
+    source: "https://github.com/touhid9teen/collapsible-tree-explorer",
+  },
+  // {
+  //   title: "PayMicroservice",
+  //   description:
+  //     "Microservice-based payment processing system with secure transactions and API integration.",
+  //   image: "/images/projects/pay-microservice.png",
+  //   technologies: ["Django REST Framework", "PostgreSQL"],
+  //   source: "https://github.com/touhid9teen/PayMicroservice",
+  // },
+  // {
+  //   title: "JobPortal",
+  //   description:
+  //     "Backend API for a job portal connecting candidates and employers, providing secure authentication, job management, application tracking, caching, and task scheduling.",
+  //   image: "/images/projects/job-portal.png",
+  //   technologies: [
+  //     "Django REST Framework",
+  //     "PostgreSQL",
+  //     "Caching",
+  //     "Task Scheduling",
+  //   ],
+  //   source: "https://github.com/touhid9teen/JobPortal",
+  // },
 ];
 
 export const education = [
