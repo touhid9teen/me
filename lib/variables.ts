@@ -1,3 +1,9 @@
+import amart from "@/assets/amart1.png";
+import alumni from "@/assets/alumni1.png";
+import tree from "@/assets/tree2.png";  
+import chronoTask from "@/assets/chronoTask2.png";
+
+
 export const sections = [
   { id: "about", label: "About" },
   { id: "projects", label: "Projects" },
@@ -83,7 +89,7 @@ export const projects = [
     title: "Amart | Grocery E-commerce Site",
     description:
       "Full-stack e-commerce platform with secure authentication, product management, and order processing.",
-    image: ["/assets/amart1.png", "/assets/amart2.png", "/assets/amart3.png"],
+    image: amart,
     technologies: [
       "React",
       "Next.js",
@@ -102,13 +108,7 @@ export const projects = [
     title: "ChronoTask",
     description:
       "Task management application with time tracking, note taking, and Google Drive sync.",
-    image: [
-      "/assets/chronoTask1.png",
-      "/assets/chronoTask2.png",
-      "/assets/chronoTask3.png",
-      "/assets/chronoTask4.png",
-      "/assets/chronoTask5.png",
-    ],
+    image: chronoTask,
     technologies: ["Next.js", "Tailwind CSS"],
     live: "https://chrono-task-kappa.vercel.app/",
     source: "https://github.com/touhid9teen/ChronoTask",
@@ -117,14 +117,7 @@ export const projects = [
     title: "Alumni Management System ICE-RU",
     description:
       "Web application for managing alumni records, events, and communications for a university department.",
-    image: [
-      "/assets/alumni1.png",
-      "/assets/alumni2.png",
-      "/assets/alumni3.png",
-      "/assets/alumni4.png",
-      "/assets/alumni5.png",
-      "/assets/alumni6.png",
-    ],
+    image: alumni,
     technologies: ["React", "Tailwind CSS"],
     live: "https://alumni-management-system-ice-ru.vercel.app/",
     source: "https://github.com/touhid9teen/Alumni-Management-System-ICE-RU",
@@ -133,7 +126,7 @@ export const projects = [
     title: "JSON Tree Explorer",
     description:
       "Tree visualizer that enables users to explore hierarchical data structures.",
-    image: ["/assets/tree-explorar.png"],
+    image: tree,
     technologies: ["React", "Tailwind CSS"],
     live: "https://collapsible-tree-explorer.vercel.app/",
     source: "https://github.com/touhid9teen/collapsible-tree-explorer",
