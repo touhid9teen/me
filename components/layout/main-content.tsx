@@ -20,6 +20,7 @@ export default function MainContent() {
         <BlogSection />
       </SectionWrapper>
 
+
     </main>
   );
 }

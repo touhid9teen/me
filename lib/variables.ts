@@ -85,7 +85,7 @@ export const experiences = [
 
 export const projects = [
   {
-    title: "Amart | Grocery E-commerce Site",
+    title: "Amart - Grocery E-commerce Site",
     description:
       "Full-stack e-commerce platform with secure authentication, product management, and order processing.",
     image: amart,

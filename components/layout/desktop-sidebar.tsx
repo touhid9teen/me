@@ -21,10 +21,7 @@ type Props = {
 
 const sectionIcons = {
   about: User,
-
- 
   projects: FolderGit2,
-
   blogs: BookOpen,
 };
 
@@ -46,14 +43,16 @@ export default function DesktopSidebar({
   };
 
   return (
-    <header className="hidden lg:col-span-2 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:flex-col lg:justify-between lg:py-24">
+    <div className="sticky top-0 flex flex-col justify-between py-24 max-h-screen">
+      {/* Profile Section */}
       <div>
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
+        <div className="flex flex-col gap-6">
+          {/* Profile Image */}
           <div className="relative group">
-            <div className="absolute -inset-0.5  rounded-full opacity-75 group-hover:opacity-100 blur transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-            <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-[3px] border-slate-900 shadow-xl">
+            <div className="absolute -inset-0.5 rounded-full opacity-75 group-hover:opacity-100 blur transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+            <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-[3px] border-slate-900 dark:border-slate-100 shadow-lg">
               <Image
-                 src={me}
+                src={me}
                 alt="Touhidul Islam"
                 fill
                 className="object-cover transform transition-transform duration-500 group-hover:scale-110"
@@ -61,98 +60,81 @@ export default function DesktopSidebar({
               />
             </div>
           </div>
-          <div className="flex flex-col justify-center">
+
+          {/* Profile Info */}
+          <div className="flex flex-col">
             <div className="inline-flex items-center gap-2 mb-2">
-                 <span className="text-teal-600 dark:text-teal-400 font-mono text-sm tracking-wider">Hi, I'm</span>
+              <span className="text-teal-600 dark:text-teal-400 font-mono text-xs tracking-wider">
+                HI, I'M
+              </span>
             </div>
-            <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white whitespace-nowrap sm:text-5xl">
+            <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
               Touhidul Islam
             </h1>
-            <h2 className="mt-2 text-lg font-medium tracking-wide text-slate-700 dark:text-slate-200 bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-500 dark:from-slate-200 dark:to-slate-400">
-              Software Engineer at Upay
+            <h2 className="mt-1 text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400">
+              Software Engineer
             </h2>
-            <div className="mt-3 flex flex-col gap-4">
-                 <p className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm font-medium">
-                    <MapPin className="h-4 w-4 text-teal-600 dark:text-teal-500" /> 
-                    <span>Dhaka, Bangladesh</span>
-                 </p>
-                 <SocialIcons />
+            
+            {/* Location and Social */}
+            <div className="mt-3 flex flex-col gap-3">
+              <p className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-xs font-medium">
+                <MapPin className="h-3.5 w-3.5 text-teal-600 dark:text-teal-500 flex-shrink-0" />
+                <span>Dhaka, Bangladesh</span>
+              </p>
+              <SocialIcons />
             </div>
           </div>
         </div>
-        {/* <ThemeToggleCorner /> */}
 
-        <nav aria-label="In-page jump links" className="nav">
-          <ul className="mt-16 w-max">
+        {/* Navigation */}
+        <nav aria-label="In-page jump links" className="mt-12">
+          <ul className="w-max space-y-1">
             {sections.map((s) => {
               const Icon = sectionIcons[s.id as keyof typeof sectionIcons];
               const isActive = activeSection === s.id;
               const isHovered = hoveredSection === s.id;
 
               return (
-                <li key={s.id} className="relative">
+                <li key={s.id}>
                   <button
-                    className="group relative flex items-center py-3 w-full transition-all duration-300 ease-out overflow-hidden"
+                    className="group relative flex items-center py-2 px-2 w-full transition-all duration-300 ease-out overflow-hidden rounded-md"
                     onClick={() => scrollToSection(s.id)}
                     onMouseMove={(e) => handleMouseMove(e, s.id)}
                     onMouseLeave={() => setHoveredSection(null)}
                   >
-                    {/* Active Background - Static */}
+                    {/* Active Background */}
                     {isActive && (
-                      <span className="absolute inset-0 -left-4 right-0 bg-gradient-to-r from-teal-500/20 via-teal-400/10 to-transparent rounded-md" />
+                      <span className="absolute inset-0 bg-gradient-to-r from-teal-500/20 via-teal-400/10 to-transparent" />
                     )}
 
-                    {/* Sliding Background for hover (works for both active and non-active) */}
-                    {isHovered && (
-                      <>
-                        <span
-                          className="absolute inset-0 -left-4 right-0 h-20 bg-gradient-to-r from-teal-500/15 via-teal-400/20 to-transparent rounded-md blur-sm transition-all duration-200 ease-out"
-                          style={{
-                            transform: `translateY(${mouseY - 40}px)`,
-                          }}
-                        />
-                        <span
-                          className="absolute inset-0 -left-4 right-0 h-12 bg-gradient-to-r from-teal-500/10 to-transparent rounded-md transition-all duration-150 ease-out"
-                          style={{
-                            transform: `translateY(${mouseY - 24}px)`,
-                          }}
-                        />
-                      </>
+                    {/* Hover Background */}
+                    {isHovered && !isActive && (
+                      <span className="absolute inset-0 bg-gradient-to-r from-teal-500/10 via-teal-400/5 to-transparent" />
                     )}
 
                     {/* Content */}
-                    <span className="relative flex items-center z-10">
+                    <span className="relative flex items-center gap-2 z-10">
                       <span
-                        className={`nav-indicator mr-4 h-px transition-all duration-300 ${
+                        className={`h-px transition-all duration-300 ${
                           isActive || isHovered
-                            ? "w-16 bg-teal-300"
-                            : "w-8 bg-slate-600"
+                            ? "w-12 bg-teal-400"
+                            : "w-6 bg-slate-400"
                         }`}
                       />
                       {Icon && (
                         <Icon
-                          className={`mr-2 h-4 w-4 transition-all duration-300 ${
+                          className={`h-4 w-4 transition-all duration-300 flex-shrink-0 ${
                             isActive || isHovered
-                              ? "text-teal-300 scale-110"
+                              ? "text-teal-400"
                               : "text-slate-500"
                           }`}
-                          style={{
-                            filter:
-                              isActive || isHovered
-                                ? "drop-shadow(0 2px 4px rgba(45, 212, 191, 0.4)) drop-shadow(0 0 8px rgba(45, 212, 191, 0.3))"
-                                : "none",
-                            transform:
-                              isActive || isHovered
-                                ? "perspective(100px) rotateY(-15deg) translateZ(10px)"
-                                : "none",
-                          }}
                         />
                       )}
                       <span
-                        className={`nav-text text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
+                        className={`text-xs font-bold uppercase tracking-widest transition-colors duration-300 whitespace-nowrap ${
                           isActive || isHovered
-                            ? "text-teal-300"
-                            : "text-slate-500"
+                            ? "text-teal-400"
+                            : "text-slate-600 dark:text-slate-400"
                         }`}
                       >
                         {s.label}
@@ -165,6 +147,6 @@ export default function DesktopSidebar({
           </ul>
         </nav>
       </div>
-    </header>
+    </div>
   );
 }

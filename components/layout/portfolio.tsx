@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { Footer } from "@/components/layout/footer";
 import { useActiveSection } from "@/hooks/use-active-section";
 import DesktopSidebar from "./desktop-sidebar";
-
 import MainContent from "./main-content";
 import ScrollToTopButton from "../common/scroll-to-top-button";
 import { WhatsAppChat } from "../common/whatsapp-chat";
@@ -40,8 +39,8 @@ export default function Portfolio() {
   if (!mounted) return null;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 pb-16 sm:pb-20 md:pb-24 lg:pb-36 xl:pb-40 transition-colors duration-300">
-      {/* <header className="fixed top-0 left-0 w-full z-[999] pointer-events-none"> */}
+    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+      {/* Header */}
       <header
         className={`fixed top-0 left-0 w-full z-[999] pointer-events-none transition-all duration-300 ${
           hideHeader
@@ -50,15 +49,12 @@ export default function Portfolio() {
         }`}
       >
         <div className="flex justify-between items-center p-5">
-          {/* Mobile Menu Button */}
           <div className="pointer-events-auto">
             <MobileMenuButton
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               isOpen={isMobileMenuOpen}
             />
           </div>
-
-          {/* Theme Toggle */}
           <div className="pointer-events-auto">
             <ThemeToggleCorner />
           </div>
@@ -72,23 +68,31 @@ export default function Portfolio() {
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
       />
-      <div className="mx-auto max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 ">
-        <div
-          className="lg:grid lg:grid-cols-5 gap-8
-        "
-        >
-          <DesktopSidebar
-            activeSection={activeSection}
-            scrollToSection={scrollToSection}
-          />
 
-          <div className="lg:col-span-3 items-center flex justify-center ">
-            <MainContent />
+      {/* Main Content Wrapper */}
+      <div className="w-full pt-12 md:pt-20 lg:pt-0">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12">
+          <div className="grid w-full grid-cols-1 gap-6 lg:gap-8 lg:grid-cols-5">
+            {/* Desktop Sidebar - Fixed width, takes 1 column */}
+            <div className="hidden lg:flex lg:col-span-1 lg:flex-col">
+              <DesktopSidebar
+                activeSection={activeSection}
+                scrollToSection={scrollToSection}
+              />
+            </div>
+
+            {/* Main Content - Responsive, takes remaining columns */}
+            <div className="w-full lg:col-span-4">
+              <MainContent />
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Footer */}
       <Footer />
 
+      {/* Utilities */}
       <WhatsAppChat onToggle={(open) => setHideHeader(open)} />
       <ScrollToTopButton visible={showScrollTop} scrollToTop={scrollToTop} />
     </div>
