@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import me from "@/assets/me.jpg";
+import SocialIcons from "../common/social-icons";
 
 type Props = {
   activeSection: string;
@@ -20,11 +21,10 @@ type Props = {
 
 const sectionIcons = {
   about: User,
-  experience: Briefcase,
-  education: GraduationCap,
+
+ 
   projects: FolderGit2,
-  "problem-solving": Code2,
-  contact: Mail,
+
   blogs: BookOpen,
 };
 
@@ -69,14 +69,14 @@ export default function DesktopSidebar({
               Touhidul Islam
             </h1>
             <h2 className="mt-2 text-lg font-medium tracking-wide text-slate-700 dark:text-slate-200 bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-500 dark:from-slate-200 dark:to-slate-400">
-              Software Engineer
+              Software Engineer at Upay
             </h2>
             <div className="mt-3 flex flex-col gap-4">
                  <p className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm font-medium">
                     <MapPin className="h-4 w-4 text-teal-600 dark:text-teal-500" /> 
                     <span>Dhaka, Bangladesh</span>
                  </p>
-                 {/* <SocialIcons /> */}
+                 <SocialIcons />
             </div>
           </div>
         </div>

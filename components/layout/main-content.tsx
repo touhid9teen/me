@@ -20,9 +20,6 @@ export default function MainContent() {
         <BlogSection />
       </SectionWrapper>
 
-      <SectionWrapper id="contact">
-        <ContactSection />
-      </SectionWrapper>
     </main>
   );
 }

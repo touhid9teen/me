@@ -5,6 +5,7 @@ import Image from "next/image";
 import TechStackSection from "../common/tech-stack";
 import { experiences, education, problemSolvingData } from "@/lib/variables";
 import me from "@/assets/me.jpg";
+import SocialIcons from "../common/social-icons";
 
 export default function AboutSection() {
   return (
@@ -31,13 +32,17 @@ export default function AboutSection() {
               Touhidul Islam
             </h1>
             <h2 className="mt-3 text-xl font-medium tracking-tight text-slate-700 dark:text-slate-200">
-              Software Engineer
+              Software Engineer at Upay
             </h2>
             <p className="mt-4 flex items-center gap-2 text-slate-600 dark:text-slate-400">
               <MapPin className="h-4 w-4 text-teal-500" />
               <span>Dhaka, Bangladesh</span>
             </p>
+              <div className="w-full flex justify-center scale-110">
+                    <SocialIcons />
+                  </div>
           </div>
+        
         </div>
       </div>
 
@@ -48,11 +53,11 @@ export default function AboutSection() {
           About
         </h2>
         
-        <div className="space-y-4 text-base leading-relaxed text-slate-700 dark:text-slate-400 selection:bg-teal-300/30 dark:selection:bg-teal-700/30">
+        {/* <div className="space-y-4 text-base leading-relaxed text-slate-700 dark:text-slate-400 selection:bg-teal-300/30 dark:selection:bg-teal-700/30">
           <p>
             I am a Software Engineer specializing in high-performance web applications using <span className="font-semibold text-slate-900 dark:text-slate-200">React</span>, <span className="font-semibold text-slate-900 dark:text-slate-200">Next.js</span>, and <span className="font-semibold text-slate-900 dark:text-slate-200">Node.js</span> alongside <span className="font-semibold text-slate-900 dark:text-slate-200">Django Rest Framework</span>. Currently driving frontend innovation at <span className="inline-block relative font-bold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors after:content-[''] after:absolute after:w-full after:h-px after:bg-teal-500 after:bottom-0 after:left-0 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-bottom-left">Upay</span> (UCB Fintech Company Limited), I tackle complex design and performance challenges daily. A passionate problem solver at heart, I dedicate my free time to mastering algorithms, reading, and exploring new technologies.
           </p>
-        </div>
+        </div> */}
       </div>
 
       {/* Compact Experience & Education Grid */}
@@ -141,9 +146,7 @@ export default function AboutSection() {
         </div>
       </div>
 
-      <div className="animate-in fade-in duration-700 slide-in-from-bottom-8 delay-150">
-        <TechStackSection />
-      </div>
+     
     </div>
   );
 }

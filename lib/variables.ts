@@ -8,7 +8,6 @@ export const sections = [
   { id: "about", label: "About" },
   { id: "projects", label: "Projects" },
   { id: "blogs", label: "Blogs" },
-  { id: "contact", label: "Contact" },
 ];
 
 export const dummyBlogs = [
