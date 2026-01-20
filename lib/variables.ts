@@ -13,33 +13,63 @@ export const sections = [
 export const dummyBlogs = [
   {
     id: 1,
-    title: "Understanding React Server Components",
-    summary:
-      "A deep dive into how React Server Components work and how they differ from Client Components...",
-    date: "Oct 2025",
-    readTime: "5 min read",
+    title: "E-commerce: Instant loads with Speculation Rules API",
+    date: "2025-11-24",
     link: "#",
-    tags: ["React", "Next.js"],
   },
   {
     id: 2,
-    title: "Mastering Tailwind CSS for Scalable Design",
-    summary:
-      "Best practices for using Tailwind CSS in large-scale applications to maintain consistency...",
-    date: "Sep 2025",
-    readTime: "4 min read",
+    title: "How Sentry could stop npm from breaking the internet",
+    date: "2025-07-25",
     link: "#",
-    tags: ["CSS", "Tailwind"],
   },
   {
     id: 3,
-    title: "Optimizing Web Performance with Next.js",
-    summary:
-      "Techniques and strategies to improve your Next.js application's performance and Core Web Vitals...",
-    date: "Aug 2025",
-    readTime: "6 min read",
+    title: "How to reduce TTFB",
+    date: "2024-11-25",
     link: "#",
-    tags: ["Performance", "Next.js"],
+  },
+  {
+    id: 4,
+    title: "What's the diff between API Latency and Response Time?",
+    date: "2024-10-11",
+    link: "#",
+  },
+  {
+    id: 5,
+    title: "How to identify and fix Render-Blocking Resources",
+    date: "2024-10-04",
+    link: "#",
+  },
+  {
+    id: 6,
+    title: "Atomic Repositories in Clean Architecture and TypeScript",
+    date: "2024-10-03",
+    link: "#",
+  },
+  {
+    id: 7,
+    title: "Why Clean Architecture makes debugging easier",
+    date: "2024-09-19",
+    link: "#",
+  },
+  {
+    id: 8,
+    title: "The Forensics of React Server Components",
+    date: "2024-05-09",
+    link: "#",
+  },
+  {
+    id: 9,
+    title: "Low effort image optimization tips",
+    date: "2024-03-25",
+    link: "#",
+  },
+  {
+    id: 10,
+    title: "Environment variables type safety and validation with Zod",
+    date: "2024-01-07",
+    link: "#",
   },
 ];
 

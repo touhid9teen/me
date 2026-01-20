@@ -1,58 +1,30 @@
 "use client";
 
 import { dummyBlogs } from "@/lib/variables";
-import { ArrowUpRight, Calendar, Clock } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function BlogSection() {
   return (
-    <div className="w-full space-y-8">
+    <div className="w-full max-w-4xl mx-auto space-y-8 font-mono">
       {/* Section Header */}
-      <div className="flex items-center gap-4">
-        <h2 className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-teal-400 bg-clip-text text-transparent">
-          Latest Writings
-        </h2>
-        <div className="h-px flex-1 bg-slate-200 dark:bg-slate-800" />
-      </div>
+      <h2 className="text-xl font-bold text-slate-200">all posts</h2>
 
-      <div className="grid gap-6">
+      <div className="flex flex-col space-y-3">
         {dummyBlogs.map((blog) => (
           <a
             key={blog.id}
             href={blog.link}
-            className="group relative block p-6 bg-white dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-teal-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+            className="group flex items-baseline gap-4 md:gap-8 hover:opacity-100 transition-opacity"
           >
-            <div className="flex justify-between items-start mb-4">
-              <div className="flex items-center gap-3 text-xs font-medium text-slate-500 dark:text-slate-400">
-                <span className="flex items-center gap-1">
-                  <Calendar className="w-3 h-3" />
-                  {blog.date}
-                </span>
-                <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700" />
-                <span className="flex items-center gap-1">
-                  <Clock className="w-3 h-3" />
-                  {blog.readTime}
-                </span>
-              </div>
-              <ArrowUpRight className="w-5 h-5 text-slate-400 group-hover:text-teal-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
-            </div>
+            <span className="shrink-0 w-24 text-sm text-slate-500 font-medium font-sans">
+              {blog.date}
+            </span>
 
-            <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-              {blog.title}
-            </h3>
-            
-            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
-              {blog.summary}
-            </p>
-
-            <div className="flex gap-2">
-              {blog.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2.5 py-1 text-xs font-medium text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-900/20 rounded-full border border-teal-100 dark:border-teal-900/50"
-                >
-                  {tag}
-                </span>
-              ))}
+            <div className="flex items-center gap-2 text-base text-teal-400 group-hover:underline decoration-teal-400/50 underline-offset-4  transition-all">
+              <ArrowUpRight className="w-3.5 h-3.5 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <span className="font-medium text-teal-400 dark:text-teal-400 opacity-90 group-hover:opacity-100">
+                {blog.title}
+              </span>
             </div>
           </a>
         ))}
