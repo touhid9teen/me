@@ -2,6 +2,7 @@ import amart from "@/assets/amart1.png";
 import alumni from "@/assets/alumni1.png";
 import tree from "@/assets/tree2.png";
 import chronoTask from "@/assets/chronoTask2.png";
+import commentSystem from "@/assets/commenting.png";
 
 export const sections = [
   { id: "about", label: "About" },
@@ -106,7 +107,7 @@ export const projects = [
     title: "Comment System",
     description:
       "Real-time comment system with authentication and authorization.",
-    image: amart,
+    image: commentSystem,
     technologies: [
       "React",
       "Next.js",
