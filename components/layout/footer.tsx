@@ -2,7 +2,7 @@
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50">
+    <footer className="mt-24 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 pb-24">
       <div className="mx-auto max-w-screen-xl px-6 py-8 md:px-12 lg:px-24">
         <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0">
           {/* Made with love */}
