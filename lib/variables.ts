@@ -1,8 +1,7 @@
 import amart from "@/assets/amart1.png";
 import alumni from "@/assets/alumni1.png";
-import tree from "@/assets/tree2.png";  
+import tree from "@/assets/tree2.png";
 import chronoTask from "@/assets/chronoTask2.png";
-
 
 export const sections = [
   { id: "about", label: "About" },
@@ -102,6 +101,27 @@ export const projects = [
     live: "https://amart-dusky.vercel.app/",
     frontend: "https://github.com/touhid9teen/amart",
     backend: "https://github.com/touhid9teen/amart-backend",
+  },
+  {
+    title: "Comment System",
+    description:
+      "Real-time comment system with authentication and authorization.",
+    image: amart,
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Socket.io",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Redis",
+    ],
+    live: "https://comment-system-ten-liard.vercel.app/",
+    frontend: "https://github.com/touhid9teen/Comment-System",
+    backend: "https://github.com/touhid9teen/Comment-System-backend",
   },
   {
     title: "ChronoTask",
