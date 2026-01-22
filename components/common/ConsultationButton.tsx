@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { X, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Me from "@/assets/me.jpg";
 
 export default function ConsultationButton() {
   const [isVisible, setIsVisible] = useState(true);
@@ -40,7 +41,7 @@ export default function ConsultationButton() {
           <div className="relative flex-shrink-0">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden ring-2 ring-green-400 ring-offset-2 ring-offset-white dark:ring-offset-gray-900">
               <Image
-                src="/me.jpg"
+                src={Me}
                 alt="Touhid"
                 width={56}
                 height={56}
