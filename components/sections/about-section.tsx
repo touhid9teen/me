@@ -1,10 +1,7 @@
 "use client";
 
-import { MapPin, Briefcase, GraduationCap, Code2, ExternalLink } from "lucide-react";
-import Image from "next/image";
-import TechStackSection from "../common/tech-stack";
-import { experiences, education, problemSolvingData } from "@/lib/variables";
-import me from "@/assets/me.jpg";
+import { education, experiences, problemSolvingData } from "@/lib/variables";
+import { Briefcase, Code2, ExternalLink, GraduationCap, MapPin } from "lucide-react";
 import SocialIcons from "../common/social-icons";
 
 export default function AboutSection() {
@@ -13,7 +10,7 @@ export default function AboutSection() {
       {/* Mobile Header */}
       <div className="lg:hidden border-b border-slate-200 dark:border-slate-800 pb-8">
         <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-          <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-[3px] border-slate-900/10 dark:border-slate-100/10 shadow-md">
+          {/* <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-[3px] border-slate-900/10 dark:border-slate-100/10 shadow-md">
             <Image
               src=  {me}
               alt="Touhidul Islam"
@@ -21,7 +18,7 @@ export default function AboutSection() {
               className="object-cover"
               priority
             />
-          </div>
+          </div> */}
           <div>
             <h4 className="py-2">
               <span className="p-1 text-teal-600 dark:text-teal-400 font-mono text-sm tracking-widest uppercase">

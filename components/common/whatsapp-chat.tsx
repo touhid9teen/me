@@ -109,7 +109,7 @@ export function WhatsAppChat({
       console.error("Chat Error", error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "I'm having a bit of trouble connecting to my creative brain right now. Please check your internet or try again later! 🧠✨",
+        text: "I'm having a bit of trouble connecting to my creative brain left now. Please check your internet or try again later! 🧠✨",
         sender: "bot",
         timestamp: new Date(),
       };
@@ -125,7 +125,7 @@ export function WhatsAppChat({
       message ||
       "Hi Touhid! I visited your portfolio and would like to connect.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      defaultMessage,
+      defaultMessage
     )}`;
     window.open(whatsappUrl, "_blank");
   };
@@ -143,7 +143,7 @@ export function WhatsAppChat({
 
       {/* Chat Window - Responsive positioning and sizing */}
       {isOpen && (
-        <div className="fixed inset-x-0 bottom-0 sm:inset-auto sm:bottom-4 sm:right-4 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8 z-50 mx-auto sm:mx-0">
+        <div className="fixed inset-x-0 bottom-0 sm:inset-auto sm:bottom-4 sm:left-4 md:bottom-6 md:left-6 lg:bottom-8 lg:left-8 z-50 mx-auto sm:mx-0">
           <div className="w-full h-[100dvh] sm:h-auto sm:w-[360px] md:w-[400px] lg:w-[420px] bg-white dark:bg-slate-800 sm:rounded-2xl shadow-2xl border-t sm:border border-slate-200 dark:border-slate-700 overflow-hidden animate-in slide-in-from-bottom-5 sm:slide-in-from-bottom-0 duration-300 flex flex-col sm:max-h-[600px] md:max-h-[650px] lg:max-h-[700px]">
             {/* Header */}
             <div className="bg-gradient-to-r from-teal-500 to-teal-600 text-white p-4 flex-shrink-0">
@@ -152,7 +152,7 @@ export function WhatsAppChat({
                   <div className="relative">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20">
                       <Bot className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
-                      <div className="absolute -bottom-0.5 -right-0.5 bg-green-500 rounded-full p-0.5 border-2 border-teal-600">
+                      <div className="absolute -bottom-0.5 -left-0.5 bg-green-500 rounded-full p-0.5 border-2 border-teal-600">
                         <Sparkles className="w-2.5 h-2.5 text-white fill-white" />
                       </div>
                     </div>
@@ -295,7 +295,7 @@ export function WhatsAppChat({
       )}
 
       {/* Floating Chat Button - Responsive positioning */}
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 lg:bottom-10 lg:right-10 z-50">
+      <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-8 md:left-8 lg:bottom-10 lg:left-10 z-50">
         {/* Animated Background Rings - Only show when chat is closed */}
         {!isOpen && (
           <div className="absolute inset-0 -m-2">
@@ -351,7 +351,7 @@ export function WhatsAppChat({
 
         {/* Online Status Indicator - Only show when chat is closed */}
         {!isOpen && isOnline && (
-          <div className="absolute -top-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 bg-green-400 rounded-full border-2 border-white">
+          <div className="absolute -top-1 -left-1 w-3 h-3 sm:w-4 sm:h-4 bg-green-400 rounded-full border-2 border-white">
             <div className="w-full h-full bg-green-400 rounded-full animate-ping"></div>
           </div>
         )}

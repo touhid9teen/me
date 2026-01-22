@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import me from "@/assets/me.jpg";
 import SocialIcons from "../common/social-icons";
 
 type Props = {
@@ -34,7 +33,7 @@ export default function DesktopSidebar({
 
   const handleMouseMove = (
     e: React.MouseEvent<HTMLButtonElement>,
-    sectionId: string
+    sectionId: string,
   ) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const y = e.clientY - rect.top;
@@ -48,7 +47,7 @@ export default function DesktopSidebar({
       <div>
         <div className="flex flex-col gap-6">
           {/* Profile Image */}
-          <div className="relative group">
+          {/* <div className="relative group">
             <div className="absolute -inset-0.5 rounded-full opacity-75 group-hover:opacity-100 blur transition duration-1000 group-hover:duration-200 animate-tilt"></div>
             <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-[3px] border-slate-900 dark:border-slate-100 shadow-lg">
               <Image
@@ -59,7 +58,7 @@ export default function DesktopSidebar({
                 priority
               />
             </div>
-          </div>
+          </div> */}
 
           {/* Profile Info */}
           <div className="flex flex-col">
@@ -74,7 +73,7 @@ export default function DesktopSidebar({
             <h2 className="mt-1 text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400">
               Software Engineer
             </h2>
-            
+
             {/* Location and Social */}
             <div className="mt-3 flex flex-col gap-3">
               <p className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-xs font-medium">

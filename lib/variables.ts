@@ -13,11 +13,11 @@ export const sections = [
 export const blogPost = [
   {
     id: 1,
-    title: "Library or Framework? How React and Next.js Control Your Code (A Journey Analogy)",
+    title:
+      "Library or Framework? How React and Next.js Control Your Code (A Journey Analogy)",
     date: "2026-01-22",
-    link: "#",
+    link: "https://medium.com/@chandramollikha/library-or-framework-how-react-and-next-js-control-your-code-a-journey-analogy-35a74d6bd784",
   },
-  
 ];
 
 export const experiences = [

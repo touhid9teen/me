@@ -5,6 +5,7 @@ import { Crimson_Text } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/common/theme-provider";
 import HexagonLoader from "@/components/common/hexagon-loader";
+import ConsultationButton from "@/components/common/ConsultationButton";
 // @ts-ignore
 import "@/styles/fonts.css";
 
@@ -38,6 +39,7 @@ export default function RootLayout({
         >
           <HexagonLoader />
           {children}
+          <ConsultationButton />
         </ThemeProvider>
       </body>
     </html>
