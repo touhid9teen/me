@@ -1,6 +1,6 @@
 "use client";
 
-import { dummyBlogs } from "@/lib/variables";
+import { blogPost } from "@/lib/variables";
 import { ArrowUpRight } from "lucide-react";
 
 export default function BlogSection() {
@@ -10,7 +10,7 @@ export default function BlogSection() {
       <h2 className="text-xl font-bold text-slate-200">all posts</h2>
 
       <div className="flex flex-col space-y-3">
-        {dummyBlogs.map((blog) => (
+        {blogPost.map((blog) => (
           <a
             key={blog.id}
             href={blog.link}

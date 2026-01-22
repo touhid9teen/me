@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
-import { projects, experiences, education, dummyBlogs } from "@/lib/variables";
+import { projects, experiences, education, blogPost } from "@/lib/variables";
 
 export async function POST(req: Request) {
   try {
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
     ${JSON.stringify(education)}
     
     BLOGS/WRITINGS:
-    ${JSON.stringify(dummyBlogs)}
+    ${JSON.stringify(blogPost)}
     
     CONTACT INFO:
     - Phone/WhatsApp: +8801785250717
