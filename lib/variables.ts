@@ -76,7 +76,7 @@ export const projects = [
       "JWT",
       "React Query",
     ],
-    live: "https://amart-dusky.vercel.app/",
+    live: "https://amart-seven.vercel.app/",
     frontend: "https://github.com/touhid9teen/amart",
     backend: "https://github.com/touhid9teen/amart-backend",
   },
