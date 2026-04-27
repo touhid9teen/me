@@ -11,7 +11,7 @@ export async function POST(req: Request) {
         {
           text: "I'm sorry, I'm not fully configured yet. The developer needs to add the GEMINI_API_KEY to the environment variables.",
         },
-        { status: 200 }, // Return 200 so the chat shows the error message nicely
+        { status: 200 },
       );
     }
 
@@ -55,7 +55,7 @@ export async function POST(req: Request) {
     `;
 
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-2.0-flash",
+      model: "gemini-2.0-flash-lite",
       systemInstruction: systemPrompt,
     });
 
@@ -66,15 +66,12 @@ export async function POST(req: Request) {
     }));
 
     // Filter history to ensure it's alternating correctly and starts with user
-    // Also remove the initial welcome messages if they are from 'model'
     const cleanHistory = [];
     let lastRole = "";
     
     for (const msg of history) {
       if (msg.role === "user" || msg.role === "model") {
         if (msg.role !== lastRole) {
-          // Only add if it's not consecutive same role
-          // If the first message is 'model', skip it as Gemini history must start with 'user'
           if (cleanHistory.length === 0 && msg.role === "model") continue;
           
           cleanHistory.push(msg);
@@ -84,7 +81,7 @@ export async function POST(req: Request) {
     }
 
     const chatSession = model.startChat({
-      history: cleanHistory.slice(-10), // Keep last 10 valid messages
+      history: cleanHistory.slice(-10),
     });
 
     const result = await chatSession.sendMessage(userMessage);
