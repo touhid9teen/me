@@ -19,8 +19,7 @@ export async function POST(req: Request) {
     const userMessage = messages[messages.length - 1].text;
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
+    
     // Construct a context-aware system prompt
     const systemPrompt = `
     You are an AI assistant for Touhid, a Software Engineer.
@@ -55,30 +54,37 @@ export async function POST(req: Request) {
     - Do not make up facts. If info is missing, suggest contacting him directly.
     `;
 
+    const model = genAI.getGenerativeModel({ 
+      model: "gemini-2.0-flash",
+      systemInstruction: systemPrompt,
+    });
+
+    // Map history and filter out consecutive roles and ensure it starts with 'user'
+    let history = messages.slice(0, -1).map((m: any) => ({
+      role: m.role,
+      parts: [{ text: m.text }],
+    }));
+
+    // Filter history to ensure it's alternating correctly and starts with user
+    // Also remove the initial welcome messages if they are from 'model'
+    const cleanHistory = [];
+    let lastRole = "";
+    
+    for (const msg of history) {
+      if (msg.role === "user" || msg.role === "model") {
+        if (msg.role !== lastRole) {
+          // Only add if it's not consecutive same role
+          // If the first message is 'model', skip it as Gemini history must start with 'user'
+          if (cleanHistory.length === 0 && msg.role === "model") continue;
+          
+          cleanHistory.push(msg);
+          lastRole = msg.role;
+        }
+      }
+    }
+
     const chatSession = model.startChat({
-      history: [
-        {
-          role: "user",
-          parts: [{ text: systemPrompt }],
-        },
-        {
-          role: "model",
-          parts: [
-            {
-              text: "Understood. I am ready to assist visitors with information about Touhid's portfolio.",
-            },
-          ],
-        },
-        // We could map previous messages here if needed, but for simplicity let's rely on the immediate context + user query
-        // or map the last few messages from the client.
-        ...messages
-          .slice(0, -1)
-          .map((m: any) => ({
-            role: m.sender === "user" ? "user" : "model",
-            parts: [{ text: m.text }],
-          }))
-          .slice(-10), // Keep last 10 messages for context window stability
-      ],
+      history: cleanHistory.slice(-10), // Keep last 10 valid messages
     });
 
     const result = await chatSession.sendMessage(userMessage);

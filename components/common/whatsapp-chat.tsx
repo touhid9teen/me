@@ -83,7 +83,7 @@ export function WhatsAppChat({
       // Send context + message to the AI API
       const response = await fetch("/api/chat", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" },  
         body: JSON.stringify({
           messages: [...messages, userMessage].map((m) => ({
             role: m.sender === "user" ? "user" : "model",
@@ -109,7 +109,7 @@ export function WhatsAppChat({
       console.error("Chat Error", error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "I'm having a bit of trouble connecting to my creative brain left now. Please check your internet or try again later! 🧠✨",
+        text: "I'm currently experiencing a high volume of requests or a connection issue. Please try again in a few seconds or reach out to Touhid via WhatsApp! 🚀",
         sender: "bot",
         timestamp: new Date(),
       };
@@ -148,7 +148,7 @@ export function WhatsAppChat({
             {/* Header */}
             <div className="bg-gradient-to-r from-teal-500 to-teal-600 text-white p-4 flex-shrink-0">
               <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
+                <div className="flex items-Penter space-x-3">
                   <div className="relative">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20">
                       <Bot className="h-6 w-6 sm:h-7 sm:w-7 text-white" />

@@ -10,8 +10,8 @@ const nextConfig = {
     unoptimized: true,
   },
   // output: "export",
-  basePath: "/me",
-  trailingSlash: true,
+  // basePath: "/me",
+  trailingSlash: false,
 };
 
 export default nextConfig;
